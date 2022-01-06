@@ -76,16 +76,16 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     User.signup = async function ({ username, email, password }) {
-      const hashedPassowrd = bcrypt.hashSync(password);
+      const hashedPassword = bcrypt.hashSync(password);
       const user = await User.create({
         username,
         email,
-        hashedPassowrd,
+        hashedPassword,
       });
       return await User.scope('currentUser').findByPk(user.id);
-    }
+    };
 
-    
+
   User.associate = function (models) {
     // associations can be defined here
   };

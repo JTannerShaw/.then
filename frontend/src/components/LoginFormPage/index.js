@@ -26,32 +26,34 @@ const LoginFormPage = () => {
   }
 
   return (
-    <form className='login-form' onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label className="userLabel">
-      Username or Email:
-      <input
-      type='text'
-      placeholder='Username'
-      id='username'
-      value={credential}
-      onChange={(e) => setCredential(e.target.value)}
-      />
-      </label>
-      <label className="passLabel">
-        Password:
-      <input
-      type='password'
-      placeholder='Password'
-      id='password'
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-      />
-      </label>
-      <button className='login-button' type='submit'>Log In</button>
-    </form>
+      <div className="form-container">
+        <form className='login-form' onSubmit={handleSubmit}>
+          <ul>
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
+          <label className="userLabel">
+            Username or Email:
+            <input
+              type='text'
+              placeholder='Username'
+              id='username'
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+            />
+          </label>
+          <label className="passLabel">
+            Password:
+            <input
+              type='password'
+              placeholder='Password'
+              id='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <button className='login-button' type='submit'>Log In</button>
+        </form>
+      </div>
   )
 
 }

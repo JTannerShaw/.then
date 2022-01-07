@@ -5,26 +5,38 @@ html, body, input, textarea, button, select, a {
   font-size: 16px;
 }
 
+html {
+  background-image: url('../../../public/images/login.jpg');
+}
 
-.login-form {
+.login-form{
+  background-color: white;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: auto;
-  position: center;
+  margin: 0 auto;
+  width: 800px;
+  height: 500px;
 }
 
 .userLabel, .passLabel {
   padding: 1px;
+  font-weight: bold;
 }
 
 #username {
+  background-color: white;
   margin-bottom: 10px;
 }
 
-button {
-  border: 1px solid black;
-  background: none;
+#password {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.login-button {
+  border-radius: 5px;
+  border: none;
+  background-color: lightblue;
   font-weight: 700;
   padding: .5em 1em;
   margin: 10px;

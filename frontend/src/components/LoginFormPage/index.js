@@ -50,7 +50,7 @@ const LoginFormPage = () => {
       onChange={(e) => setPassword(e.target.value)}
       />
       </label>
-      <button type='submit'>Log In</button>
+      <button className='login-button' type='submit'>Log In</button>
     </form>
   )
 

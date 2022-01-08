@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from "react-router-dom";
 import * as sessionActions from '../../store/session';
+import Footer from "../Footer";
 import './LoginForm.css'
 
 const LoginFormPage = () => {
@@ -53,6 +54,7 @@ const LoginFormPage = () => {
           </label>
           <button className='login-button' type='submit'>Log In</button>
         </form>
+        <Footer />
       </div>
   )
 

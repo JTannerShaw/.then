@@ -5,11 +5,13 @@ html, body, input, textarea, button, select, a {
   font-size: 16px;
 }
 
-html {
+/* html {
   background-image: url('../../../public/images/login.jpg');
-}
+} */
 
 .login-form{
+  z-index: 2;
+  position: relative;
   background-color: white;
   display: flex;
   align-items: center;

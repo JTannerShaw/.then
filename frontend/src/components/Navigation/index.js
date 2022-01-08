@@ -16,13 +16,15 @@ function Navigation({ isLoaded }) {
         <ProfileButton className='profile-dropdown' user={sessionUser} />
       </ul>
     );
-
+    return (
+      <ul>
+        {sessionLinks}
+      </ul>
+    )
+  } else {
+    return <div style={{ display: 'none' }}>
+    </div>
   }
-  return (
-    <ul>
-      {isLoaded && sessionLinks}
-    </ul>
-  )
 }
 
 export default Navigation;

@@ -28,7 +28,8 @@ const LoginFormPage = () => {
 
   return (
       <div className="form-container">
-        <form className='login-form' onSubmit={handleSubmit}>
+        <div className='form-wrapper' >
+          <form className="login-form" onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
@@ -53,8 +54,11 @@ const LoginFormPage = () => {
             />
           </label>
           <button className='login-button' type='submit'>Log In</button>
-        </form>
+          <p>or</p>
+          </form>
+          
         <Footer />
+        </div>
       </div>
   )
 

@@ -1,18 +1,15 @@
 .footer {
   height: 45px;
-  top: 655px;
-  bottom: 0;
-  left: 0;
-  right: 0;
   width: 100%;
-  background-color: gray;
-  color: white;
+  background-color: rgba(128, 128, 128, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
   font-size: 12px;
+  border-radius: 0 0 20px 20px;
+  z-index: 3;
 }
 
 .github-a, .linkedin-a {

@@ -6,12 +6,26 @@ html, body, input, textarea, button, select, a {
 }
 
 /* html {
-  background-image: url('../../../public/images/login.jpg');
 } */
+
+.form-container {
+  position: absolute;
+  background-image: url('../../../public/images/login.jpg');
+  /* background-color: red; */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
 .login-form{
   z-index: 2;
-  position: relative;
+  position: absolute;
+  border-radius: 20px;
+  top: 200px;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: white;
   display: flex;
   align-items: center;

@@ -1,10 +1,11 @@
 .footer {
-  position: absolute;
-  height: 56px;
+  height: 45px;
+  top: 655px;
   bottom: 0;
-  margin-top: -10px;
+  left: 0;
+  right: 0;
   width: 100%;
-  background-color: black;
+  background-color: gray;
   color: white;
   display: flex;
   align-items: center;
@@ -12,5 +13,14 @@
   text-decoration: none;
   font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
   font-size: 12px;
-  z-index: 100;
+}
+
+.github-a, .linkedin-a {
+  text-decoration: none;
+  padding: 10px;
+}
+
+.cc {
+  font-weight: bold;
+  font-size: 15px;
 }

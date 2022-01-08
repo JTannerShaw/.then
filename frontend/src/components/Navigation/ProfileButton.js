@@ -33,13 +33,14 @@ function ProfileButton({ user }) {
   return (
     <>
     <button onClick={openMenu}>
-      <i className='drop-down' />
+      {/* <i className='drop-down' /> */}
+      {user.username}
     </button>
     {showMenu && (
       <ul className='profile-dropdown'>
         <li>{user.username}</li>
         <li>{user.email}</li>
-        <NavLink to='/login'>Profile</NavLink>
+        <NavLink to={`/user`}>Profile</NavLink>
         <li>
           <button onClick={logout}>Log Out</button>
         </li>

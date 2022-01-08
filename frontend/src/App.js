@@ -21,7 +21,6 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <SplashPage />
-            {/* <LoginFormPage /> */}
           </Route>
           <Route path='/signup'>
             <SignUpForm />

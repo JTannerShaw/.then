@@ -1,0 +1,61 @@
+.form-container {
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.signup-link {
+  text-decoration: none;
+}
+
+.form-wrapper {
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  /* height: 50%; */
+  z-index: 2;
+}
+
+
+.signup-form {
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+  padding: 5rem 0;
+  z-index: 2;
+}
+
+.emailLabel, .userLabel, .passLabel, .confirmPassLabel {
+  padding: 1px;
+  font-weight: bold;
+}
+
+#username {
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+#password {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.login-button {
+  border-radius: 5px;
+  border: none;
+  background-color: lightblue;
+  font-weight: 700;
+  padding: .5em 1em;
+  margin: 10px;
+  text-transform: uppercase;
+  transition: background-color .25s, color .25s;
+  cursor: pointer;
+}

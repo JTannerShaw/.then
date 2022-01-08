@@ -13,6 +13,10 @@ html, body, input, textarea, button, select, a {
   height: 100%;
 }
 
+.signup-link {
+  text-decoration: none;
+}
+
 .form-wrapper {
   border-radius: 20px;
   background-color: white;

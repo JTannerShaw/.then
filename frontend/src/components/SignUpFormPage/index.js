@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from "react-router-dom";
 import * as sessionActions from '../../store/session';
+import Footer from "../Footer";
+import SplashImage from "../SplashImage";
 import './SignUpForm.css'
 
 
@@ -36,56 +38,58 @@ const SignUpForm = () => {
   }
 
   return (
-    <section>
-      <form className="signup-form" onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label>
-        Email
-        <input
-        type='text'
-        value={email}
-        placeholder='Email'
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        />
-      </label>
-      <label>
-        Username
-        <input
-        type='text'
-        value={username}
-        placeholder="Username"
-        onChange={(e) => setUsername(e.target.value)}
-        required
-        />
-      </label>
-      <label>
-        Password
-        <input
-        type='password'
-        value={password}
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
-        required
-        />
-      </label>
-      <label>
-        Confirm Password
-        <input
-        type='password'
-        value={confirmPassword}
-        placeholder="Confirm Password"
-        onChange={(e) => setConfirmPassword(e.target.value)}
-        required
-        />
-      </label>
-      <button type='submit'>Sign Up</button>
-      </form>
-
-    </section>
-
+    <div className='form-container'>
+      <SplashImage />
+      <div className='form-wrapper'>
+        <form className="signup-form" onSubmit={handleSubmit}>
+          <ul>
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
+          <label className='emailLabel'>
+            Email
+            <input
+              type='text'
+              value={email}
+              placeholder='Email'
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </label>
+          <label className='userLabel'>
+            Username
+            <input
+              type='text'
+              value={username}
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </label>
+          <label className="passLabel">
+            Password
+            <input
+              type='password'
+              value={password}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <label className="confirmPassLabel">
+            Confirm Password
+            <input
+              type='password'
+              value={confirmPassword}
+              placeholder="Confirm Password"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </label>
+          <button type='submit'>Sign Up</button>
+        </form>
+        <Footer />
+      </div>
+    </div>
   )
 }
 

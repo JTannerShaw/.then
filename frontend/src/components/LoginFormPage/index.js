@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import Footer from "../Footer";
+import SignUpForm from "../SignUpFormPage";
 import './LoginForm.css'
 
 const LoginFormPage = () => {
@@ -15,6 +16,8 @@ const LoginFormPage = () => {
   if (sessionUser) return (
     <Redirect to='/' />
   )
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,9 +57,8 @@ const LoginFormPage = () => {
             />
           </label>
           <button className='login-button' type='submit'>Log In</button>
-          <p>or</p>
           </form>
-          
+          <p>Not a .then member?</p><a href='signup'>Sign Up!</a>
         <Footer />
         </div>
       </div>

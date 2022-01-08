@@ -10,7 +10,6 @@ const getQuestions = (questions) => {
   }
 }
 
-
 const getQuestion = () => async dispatch => {
   const response = await csrfFetch('/api/question');
 
@@ -33,4 +32,4 @@ const questionReducer = (state = initialState, action) => {
   }
 }
 
-const questionReducer;
+export default questionReducer;

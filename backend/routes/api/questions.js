@@ -11,6 +11,6 @@ const { handleValidationErrors } = require('../../utils/validation');
 const router = express.Router();
 
 router.get('/', asyncHandler(async function(req, res) {
-  const questions = await QuestionRepo.list();
+  const questions = await Question.findAll();
   return res.json(questions);
 }))

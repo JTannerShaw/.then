@@ -1,34 +1,38 @@
 import { csrfFetch } from './csrf';
 
+const LOAD = 'question/LOAD'
 
-const GET_QUESTION = 'question/getQuestion'
+const load = (list) => ({
+    type: LOAD,
+    list
+  });
 
-const getQuestions = (questions) => {
-  return {
-    type: GET_QUESTION,
-    payload: questions
-  }
-}
-
-const getQuestion = () => async dispatch => {
-  const response = await csrfFetch('/api/question');
+export const getQuestion = () => async dispatch => {
+  const response = await csrfFetch(`/api/questions`);
 
   if (response.ok) {
-    const data = await response.json();
-    dispatch(getQuestions(data))
-    return response;
+    const list = await response.json();
+    dispatch(load(list));
   }
 }
 
 const initialState = {};
 
 const questionReducer = (state = initialState, action) => {
-  let newState;
   switch(action.type) {
-    case GET_QUESTION:
-      newState = Object.assign({}, state);
-      newState.question = action.payload;
-      return newState;
+    case LOAD: {
+      const allQuestions = {};
+      action.list.forEach((question) => {
+        allQuestions[question.id] = question;
+      });
+      return {
+        ...allQuestions,
+        ...state,
+        list: action.ist
+      };
+    }
+    default:
+      return state;
   }
 }
 

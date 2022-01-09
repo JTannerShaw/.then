@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, Redirect } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 // import ProfileButton from './ProfileButton'
+import { getQuestion } from "../../store/question";
 import Navigation from "../Navigation";
 
-function HomePage() {
+const HomePage = () => {
+  const dispatch = useDispatch();
+
+  const question = useSelector(state => {
+    return state.question.list
+  })
+
+  useEffect(() => {
+    dispatch(getQuestion());
+  },[dispatch])
+  console.log('This is the question', question);
   return (
     <div>
       {/* <Navigation /> */}

@@ -1,6 +1,6 @@
 <h1 align='center' style='font-weight: bold'> .then() </h1>
 <div>
-<p align='center'>.then is an App for developers to go to for asking questions on coding problems. It is inspired by <a href='https://www.quora.com'>Quora</a>
+<p align='center'>.then is an App for developers to go to for asking questions on coding problems. It is inspired by <a style='font-weight: bold'href='https://www.quora.com'>Quora</a>
 <br>
 </br>
 </p>
@@ -9,8 +9,8 @@
 
 <h1 align='center' style='font-weight: bold'> Index </h1>
 <br>
-<div align='center'>
-| <a href='https://github.com/JTannerShaw/.then/wiki/Feature-List-(MVP)'>Feature List</a> | <a href='https://github.com/JTannerShaw/.then/wiki/DB-Schema'>DB Schema</a> | <a href='https://github.com/JTannerShaw/.then/wiki/API-Routes'>API Documentation</a> | <a href='https://github.com/JTannerShaw/.then/wiki/Frontend-Routes'> Frontend Routes </a>
+<div align='center' style='font-weight: bold'>
+ <a href='https://github.com/JTannerShaw/.then/wiki/Feature-List-(MVP)'>Feature List</a> - <a href='https://github.com/JTannerShaw/.then/wiki/DB-Schema'>DB Schema</a> - <a href='https://github.com/JTannerShaw/.then/wiki/API-Routes'>API Documentation</a> - <a href='https://github.com/JTannerShaw/.then/wiki/Frontend-Routes'> Frontend Routes </a>
 <br>
 </br>
 </div>

@@ -1,17 +1,26 @@
-# .then()
+<h1 align='center' style='font-weight: bold'> .then() </h1>
+<div>
+<p align='center'>.then is an App for developers to go to for asking questions on coding problems. It is inspired by <a href='https://www.quora.com'>Quora</a>
+<br>
+</br>
+</p>
 
-.then is an App for coders and programmers to go to for asking questions on coding problems. It is inspired by [Quora](https://www.quora.com)
+</div>
 
-# Index
-
-| [MVP Feature List](https://github.com/JTannerShaw/.then/wiki/Feature-List-(MVP)) | [DataBase Schema](https://github.com/JTannerShaw/.then/wiki/DB-Schema) | [API Documentation](https://github.com/JTannerShaw/.then/wiki/API-Routes) | [Frontend Routes](https://github.com/JTannerShaw/.then/wiki/Frontend-Routes) |
-
-
-# Technologies Used
+<h1 align='center' style='font-weight: bold'> Index </h1>
+<br>
+<div align='center'>
+| <a href='https://github.com/JTannerShaw/.then/wiki/Feature-List-(MVP)'>Feature List</a> | <a href='https://github.com/JTannerShaw/.then/wiki/DB-Schema'>DB Schema</a> | <a href='https://github.com/JTannerShaw/.then/wiki/API-Routes'>API Documentation</a> | <a href='https://github.com/JTannerShaw/.then/wiki/Frontend-Routes'> Frontend Routes </a>
+<br>
+</br>
+</div>
+<div align='center'>
+<h1 align='center' style='font-weight: bold'>Technologies Used </h1>
 <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"  height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" height=50/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"  height=40/>
-
-
-# Getting Started
+</div>
+<br>
+</br>
+<h1 align='center' style='font-weight: bold'> Getting Started </h1>
 
 1. Clone this repo
 
@@ -38,7 +47,7 @@
 7. You can use the Demo user or create an account.
 
 
-# Live
+<h1 align='center' style='font-weight: bold'> Live </h1>
 
 ### Features
 

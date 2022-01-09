@@ -1,3 +1,13 @@
+.main-container {
+  height: auto;
+  min-height: 100%;
+  width: 100%;
+  position: fixed;
+  background-image: url('../../../public/images/login.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
 .form-container {
   display: flex;
   align-content: space-between;
@@ -58,4 +68,10 @@
   text-transform: uppercase;
   transition: background-color .25s, color .25s;
   cursor: pointer;
+}
+
+.login-direct {
+  text-decoration: none;
+  font-weight: bold;
+  padding-bottom: 15px;
 }

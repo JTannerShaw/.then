@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import Footer from "../Footer";
 import SignUpForm from "../SignUpFormPage";
@@ -31,7 +31,8 @@ const LoginFormPage = () => {
 
   return (
       <div className="form-container">
-        <div className='form-wrapper' >
+        <div className='form-wrapper'>
+          <h1 className="login-header">.then()</h1>
           <form className="login-form" onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -58,7 +59,7 @@ const LoginFormPage = () => {
           </label>
           <button className='login-button' type='submit'>Log In</button>
           </form>
-          <p>Not a .then member?</p><a href='signup'>Sign Up!</a>
+          <p>Not a .then member?</p><Link className='signup-direct' to='signup'>Sign Up!</Link>
         <Footer />
         </div>
       </div>

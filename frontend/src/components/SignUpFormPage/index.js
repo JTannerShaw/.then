@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import Footer from "../Footer";
 import SplashImage from "../SplashImage";
@@ -38,9 +39,11 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className='form-container'>
+    <div className='main'>
       <SplashImage />
+    <div className='form-container'>
       <div className='form-wrapper'>
+      <h1 className="login-header">.then()</h1>
         <form className="signup-form" onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -87,8 +90,10 @@ const SignUpForm = () => {
           </label>
           <button type='submit'>Sign Up</button>
         </form>
+        <p>Already a .then member?</p><Link to='/' className='login-direct'>Login!</Link>
         <Footer />
       </div>
+    </div>
     </div>
   )
 }

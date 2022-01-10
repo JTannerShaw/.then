@@ -13,7 +13,7 @@ const HomePage = () => {
   })
 
   useEffect(() => {
-    dispatch(getQuestion());
+    // dispatch(getQuestion());
   },[dispatch])
   console.log('This is the question', question);
   return (

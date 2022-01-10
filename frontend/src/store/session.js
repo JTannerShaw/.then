@@ -25,6 +25,10 @@ export const getUser = () => async dispatch => {
     return response;
   }
 }
+export const getAllUsers = () => async dispatch => {
+  const response = await csrfFetch('/api/users')
+
+}
 
 export const signup = (user) => async dispatch => {
   const { username, email, password } = user

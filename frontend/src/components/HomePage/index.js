@@ -8,21 +8,19 @@ import Navigation from "../Navigation";
 const HomePage = () => {
   const dispatch = useDispatch();
   const { questionId } = useParams();
-  const question = useSelector(state => {
-    return state.question.list
-  })
-  // console.log(question);
+  const question = useSelector(state => state.question.list)
+
   useEffect(() => {
     dispatch(getAllQuestions());
-  },[dispatch])
-  console.log('This is the question', question);
+  }, [dispatch])
+
   return (
     <div>
       <h1>You made it to the home page!</h1>
-      {question.map((question) => {
+      {question && question.map((question) => {
         return (
           <div>
-          <NavLink key={question.title} to={`${question.id}`}>{question.title}</NavLink>
+          <NavLink key={question.title} to={`/questions/${question.id}`}>{question.title}</NavLink>
           <p>{question.description}</p>
           </div>
         )

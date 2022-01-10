@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, Link } from "react-router-dom";
+import { Redirect, Link, useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import Footer from "../Footer";
 import SignUpForm from "../SignUpFormPage";
@@ -8,13 +8,14 @@ import './LoginForm.css'
 
 const LoginFormPage = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return (
-    <Redirect to='/home' />
+    <Redirect to='/' />
   )
 
 

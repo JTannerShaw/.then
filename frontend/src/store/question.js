@@ -16,6 +16,15 @@ export const getAllQuestions = () => async dispatch => {
   }
 }
 
+export const getQuestion = (id) => async dispatch => {
+  const response = await csrfFetch(`/api/questions/${id}`);
+
+  if (response.ok) {
+    const list = await response.json();
+    dispatch(load(list))
+  }
+}
+
 const initialState = {};
 
 const questionReducer = (state = initialState, action) => {

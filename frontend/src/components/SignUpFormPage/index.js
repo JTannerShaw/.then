@@ -17,7 +17,25 @@ const SignUpForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
+  useEffect(() => {
+    const errors = [];
+    if (username.length === 0) {
+      errors.push('Username field is required');
+    }
+    if (username.length > 50) {
+      errors.push('Username must be 30 characters or less');
+    }
+    if (email.length === 0) {
+      errors.push('Email field is required');
+    }
+    if (password.length === 0 || confirmPassword.length === 0) {
+      errors.push('Must provide a password')
+    }
+    setErrors(errors);
+  },[username, email, password, confirmPassword])
+
   if (sessionUser) return <Redirect to='/' />;
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -88,7 +106,7 @@ const SignUpForm = () => {
               required
             />
           </label>
-          <button type='submit'>Sign Up</button>
+          <button type='submit' disabled={errors.length === 0 ? false : true}>Sign Up</button>
         </form>
         <p>Already a .then member?</p><Link to='/' className='login-direct'>Login!</Link>
         <Footer />

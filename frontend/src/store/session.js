@@ -35,7 +35,6 @@ export const getUser = () => async dispatch => {
 }
 export const getAllUsers = () => async dispatch => {
   const response = await csrfFetch('/api/users')
-
 }
 
 export const signup = (user) => async dispatch => {

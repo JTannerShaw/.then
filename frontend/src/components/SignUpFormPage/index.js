@@ -17,6 +17,8 @@ const SignUpForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
+
+
   useEffect(() => {
     const errors = [];
     if (username.length === 0) {

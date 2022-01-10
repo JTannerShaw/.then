@@ -33,6 +33,11 @@ router.get('/', asyncHandler(async (req, res) => {
   return res.json(user);
 }))
 
+router.get('/demo', asyncHandler(async (req, res) => {
+  const user = await User.findByPk(1)
+  return res.json(user);
+}))
+
 
 router.post('/', validateSignup, asyncHandler(async (req, res) => {
   const { email, password, username } = req.body;

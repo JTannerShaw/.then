@@ -28,7 +28,7 @@ const questionReducer = (state = initialState, action) => {
       return {
         ...allQuestions,
         ...state,
-        list: action.ist
+        list: action.list
       };
     }
     default:

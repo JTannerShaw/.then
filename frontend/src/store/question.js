@@ -62,6 +62,18 @@ const questionReducer = (state = initialState, action) => {
         list: action.list
       };
     }
+    case ADD_ONE: {
+      if (!state[action.question.id]) {
+        const newState = {
+          ...state,
+          [action.question.id]: action.question
+        }
+        const questionList = newState.list.map((id) => newState[id]);
+        questionList.push(action.question);
+        newState.list = questionList;
+        return newState;
+      }
+    }
     default:
       return state;
   }

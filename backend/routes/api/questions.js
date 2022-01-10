@@ -17,8 +17,9 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) =>{
 }))
 
 router.post('/', asyncHandler(async (req, res) => {
-  const { title, description } = req.body;
+  const { ownerId, title, description } = req.body;
   const question = await Question.create({
+    ownerId,
     title,
     description
   })

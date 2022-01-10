@@ -15,12 +15,12 @@ const HomePage = () => {
   }, [dispatch])
 
   return (
-    <div>
+    <div className="question-wrapper">
       <h1>You made it to the home page!</h1>
       {question && question.map((question) => {
         return (
-          <div>
-          <NavLink key={question.title} to={`/questions/${question.id}`}>{question.title}</NavLink>
+          <div className="question-container">
+          <NavLink key={question.id} to={`/questions/${question.id}`}>{question.title}</NavLink>
           <p>{question.description}</p>
           </div>
         )

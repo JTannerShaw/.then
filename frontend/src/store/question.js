@@ -7,7 +7,7 @@ const load = (list) => ({
     list
   });
 
-export const getQuestion = () => async dispatch => {
+export const getAllQuestions = () => async dispatch => {
   const response = await csrfFetch(`/api/questions`);
 
   if (response.ok) {

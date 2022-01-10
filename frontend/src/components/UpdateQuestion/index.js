@@ -5,7 +5,6 @@ import * as questionActions from '../../store/question';
 
 const AddQuestion = () => {
   const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [errors, setErrors] = useState([]);
@@ -22,15 +21,14 @@ const AddQuestion = () => {
     setErrors(errors);
   }, [title, description]);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userId = sessionUser.id;
     const newQuestion = {
-      ownerId: userId,
       title,
       description
     }
-    const question = await dispatch(questionActions.createQuestion(newQuestion))
+    const question = await dispatch(questionActions.updateQuestion(newQuestion))
     return question;
   }
 
@@ -40,7 +38,7 @@ const AddQuestion = () => {
       <div className='form-container'>
         <form className='question-form' onSubmit={handleSubmit}>
           <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
           <label className='username-label'>
             Title

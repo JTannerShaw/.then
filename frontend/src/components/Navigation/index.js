@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, Redirect } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton'
+import QuestionModal from "../QuestionModal";
 import './Navigation.css'
 
 
@@ -13,6 +14,7 @@ function Navigation({ isLoaded }) {
 
     sessionLinks = (
       <ul>
+        <QuestionModal />
         <NavLink to='/' className='home-button'>Home</NavLink>
         <ProfileButton className='profile-dropdown' user={sessionUser} />
       </ul>

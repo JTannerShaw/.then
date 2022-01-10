@@ -28,9 +28,6 @@ function App() {
           <Route path='/signup'>
             <SignUpForm />
           </Route>
-          <Route path='/addquestion'>
-            <CreateQuestion />
-          </Route>
         </Switch>
       )}
     </>

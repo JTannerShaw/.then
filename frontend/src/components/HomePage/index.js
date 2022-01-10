@@ -1,25 +1,30 @@
 import React, { useEffect } from "react";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink, Redirect, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 // import ProfileButton from './ProfileButton'
-import { getQuestion } from "../../store/question";
+import { getAllQuestions } from "../../store/question";
 import Navigation from "../Navigation";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-
-  const question = useSelector(state => {
-    return state.question.list
-  })
+  const { questionId } = useParams();
+  const question = useSelector(state => state.question.list)
 
   useEffect(() => {
-    // dispatch(getQuestion());
-  },[dispatch])
-  console.log('This is the question', question);
+    dispatch(getAllQuestions());
+  }, [dispatch])
+
   return (
-    <div>
-      {/* <Navigation /> */}
+    <div className="question-wrapper">
       <h1>You made it to the home page!</h1>
+      {question && question.map((question) => {
+        return (
+          <div className="question-container">
+          <NavLink key={question.id} to={`/questions/${question.id}`}>{question.title}</NavLink>
+          <p>{question.description}</p>
+          </div>
+        )
+     })}
     </div>
   )
 }

@@ -14,7 +14,15 @@ const removeUser = () => {
     type: REMOVE_USER
   }
 }
+export const demoUser = () => async dispatch => {
+  const response = await csrfFetch('/api/users/demo');
 
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(setUser(data));
+    return data;
+  }
+}
 
 export const getUser = () => async dispatch => {
   const response = await csrfFetch('/api/session');
@@ -27,7 +35,6 @@ export const getUser = () => async dispatch => {
 }
 export const getAllUsers = () => async dispatch => {
   const response = await csrfFetch('/api/users')
-
 }
 
 export const signup = (user) => async dispatch => {

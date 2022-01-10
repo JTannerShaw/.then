@@ -8,7 +8,7 @@ const questionRouter = require('./questions.js');
 
 router.use('/session', sessionRouter);
 router.use('/users', userRouter);
-// router.use('/questions', questionRouter);
+router.use('/questions', questionRouter);
 
 
 

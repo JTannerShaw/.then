@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { NavLink, Redirect, useParams } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllQuestions } from "../../store/question";
+import { getAllQuestions, deleteQuestion } from "../../store/question";
 import * as sessionActions from '../../store/session';
-import UpdateQuestionModal from "../EditQuestionModal";
 
 const QuestionDetail = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const questionId = useParams();
   const { id } = questionId;
@@ -24,12 +24,19 @@ const QuestionDetail = () => {
     )
   }
 
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    const removed = await dispatch(deleteQuestion(choice))
+    history.push('/');
+  }
+
   return (
     <div className='question-wrapper'>
       <div className='question-container'>
         <h1>{choice?.title}</h1>
         <p>{choice?.description}</p>
         <NavLink to={`/questions/${id}/edit`}>Edit</NavLink>
+        <button className="delete-button" onClick={handleDelete} type='submit'>Delete Question</button>
       </div>
     </div>
   )

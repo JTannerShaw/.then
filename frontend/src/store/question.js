@@ -1,8 +1,9 @@
 import { csrfFetch } from './csrf';
 
-const LOAD = 'question/LOAD'
+const LOAD = 'question/LOAD';
 const ADD_ONE = 'question/ADD_ONE';
-const UPDATE = 'question/UPDATE'
+const UPDATE = 'question/UPDATE';
+const REMOVE = 'question/REMOVE';
 
 const load = (list) => ({
     type: LOAD,
@@ -19,6 +20,11 @@ const editQuestion = (question) => ({
   question
 })
 
+const removeQuestion = (question) => ({
+  type: REMOVE,
+  question
+})
+
 export const createQuestion = (data) => async dispatch => {
   const response = await csrfFetch(`/api/questions`, {
     method: 'POST',
@@ -31,6 +37,16 @@ export const createQuestion = (data) => async dispatch => {
     const question = await response.json();
     dispatch(addOneQuestion(question));
     return question;
+  }
+}
+
+export const deleteQuestion = (data) => async dispatch => {
+  const response = await csrfFetch(`/api/questions/${data.id}`, {
+    method: 'DELETE',
+  })
+  if (response.ok) {
+    const deleted = await response.json()
+    dispatch(removeQuestion(deleted))
   }
 }
 
@@ -79,6 +95,11 @@ const questionReducer = (state = initialState, action) => {
     }
     case UPDATE: {
       return {...state, [action.data]: action.id}
+    }
+    case REMOVE: {
+      newState = { ...state }
+      delete newState[action.question]
+      return newState;
     }
     default:
       return state;

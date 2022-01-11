@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Redirect } from 'react-router-dom';
 import * as questionActions from '../../store/question';
 import * as sessionActions from '../../store/session';
 
@@ -9,7 +9,7 @@ const UpdateQuestion = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const questionId = useParams();
-  const sessionUser = useSelector((state)  => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
   const questions = useSelector(state => state.question.entries);
   const { id } = questionId;
   const [title, setTitle] = useState('');
@@ -20,7 +20,7 @@ const UpdateQuestion = () => {
   useEffect(() => {
     dispatch(questionActions.getAllQuestions());
     dispatch(sessionActions.restore());
-  }, [dispatch, questions])
+  }, [dispatch])
 
   useEffect(() => {
     const errors = [];
@@ -41,9 +41,9 @@ const UpdateQuestion = () => {
       title,
       description
     }
-    const question = await dispatch(questionActions.updateQuestion(editQuestion))
-    console.log('This is the edit question', question)
-    history.push(`/questions/${id}`);
+    const question = await dispatch(questionActions.updateQuestion(editQuestion));
+    console.log('This is the edit question', question);
+    history.push(`/questions/${id}`)
   }
 
 
@@ -57,18 +57,18 @@ const UpdateQuestion = () => {
           <label className='username-label'>
             Title
             <input
-            type='text'
-            value={title}
-            placeholder='Title'
-            onChange={(e) => setTitle(e.target.value)}
-            required />
+              type='text'
+              value={title}
+              placeholder='Title'
+              onChange={(e) => setTitle(e.target.value)}
+              required />
           </label>
           <label className='description-label'>
             <textarea
-            value={description}
-            placeholder='Description'
-            onChange={(e) => setDescription(e.target.value)}
-            required />
+              value={description}
+              placeholder='Description'
+              onChange={(e) => setDescription(e.target.value)}
+              required />
           </label>
           <button type='submit' disabled={errors.length === 0 ? false : true}>Submit Question</button>
         </form>

@@ -29,7 +29,7 @@ const QuestionDetail = () => {
       <div className='question-container'>
         <h1>{choice?.title}</h1>
         <p>{choice?.description}</p>
-        <UpdateQuestionModal />
+        <NavLink to={`/questions/${id}/edit`}>Edit</NavLink>
       </div>
     </div>
   )

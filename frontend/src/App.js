@@ -9,6 +9,7 @@ import HomePage from './components/HomePage';
 import SplashPage from './components/SplashPage';
 import CreateQuestion from './components/CreateQuestion';
 import QuestionDetail from "./components/QuestionDetail";
+import UpdateQuestion from "./components/UpdateQuestion";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route exact path='/questions/:id'>
             <QuestionDetail />
+          </Route>
+          <Route path='/questions/:id/edit'>
+            <UpdateQuestion />
           </Route>
         </Switch>
       )}

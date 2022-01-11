@@ -30,6 +30,10 @@ const LoginFormPage = () => {
       });
   }
 
+  const handleDemo = async (e) => {
+    e.preventDefault();
+    return dispatch(sessionActions.login({ credential: 'Demo-user', password: 'password' }))
+  }
   return (
       <div className="form-container">
         <div className='form-wrapper'>
@@ -59,6 +63,7 @@ const LoginFormPage = () => {
             />
           </label>
           <button className='login-button' type='submit'>Log In</button>
+          <button className="demo-button" onClick={handleDemo}>Demo User</button>
           </form>
           <p>Not a .then member?</p><Link className='signup-direct' to='signup'>Sign Up!</Link>
         <Footer />

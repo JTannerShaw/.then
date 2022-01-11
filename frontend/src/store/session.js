@@ -1,7 +1,13 @@
 import { csrfFetch } from './csrf';
 
+const LOAD = 'session/LOAD'
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
+
+const load = (list) => ({
+  type: LOAD,
+  list
+})
 
 const setUser = (user) => {
   return {
@@ -34,7 +40,9 @@ export const getUser = () => async dispatch => {
   }
 }
 export const getAllUsers = () => async dispatch => {
-  const response = await csrfFetch('/api/users')
+  const response = await csrfFetch('/api/users');
+  const data = await response.json();
+  dispatch(load(data));
 }
 
 export const signup = (user) => async dispatch => {
@@ -97,6 +105,8 @@ const sessionReducer = (state = initialState, action) => {
     newState = Object.assign({}, state);
     newState.user = null;
     return newState;
+    case LOAD:
+      return {...state, entries: [...action.list]}
   default:
     return state;
   }

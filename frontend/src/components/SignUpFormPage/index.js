@@ -11,12 +11,16 @@ import './SignUpForm.css'
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
+  const users = useSelector((state) => state.session.entries);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
+  useEffect(() => {
+    dispatch(sessionActions.getAllUsers());
+  }, [dispatch])
 
 
   useEffect(() => {
@@ -24,9 +28,15 @@ const SignUpForm = () => {
     if (username.length === 0) {
       errors.push('Username field is required');
     }
+    const newName = users.find(user => user.username === username);
+    const newEmail = users.find(user => user.email === email);
+    if (newName || newEmail) {
+      errors.push('Username or Email already exists');
+    }
     if (username.length > 50) {
       errors.push('Username must be 30 characters or less');
     }
+    // console.log(users);
     if (email.length === 0) {
       errors.push('Email field is required');
     }

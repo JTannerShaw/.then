@@ -8,6 +8,7 @@ import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
 import SplashPage from './components/SplashPage';
 import CreateQuestion from './components/CreateQuestion';
+import QuestionDetail from "./components/QuestionDetail";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,8 +29,8 @@ function App() {
           <Route path='/signup'>
             <SignUpForm />
           </Route>
-          <Route path='/addquestion'>
-            <CreateQuestion />
+          <Route exact path='/questions/:id'>
+            <QuestionDetail />
           </Route>
         </Switch>
       )}

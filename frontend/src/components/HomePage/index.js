@@ -3,15 +3,16 @@ import { NavLink, Redirect, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 // import ProfileButton from './ProfileButton'
 import { getAllQuestions } from "../../store/question";
-import Navigation from "../Navigation";
+import * as sessionActions from '../../store/session';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const { questionId } = useParams();
-  const question = useSelector(state => state.question.list)
-
+  const question = useSelector(state => state.question.entries)
+  // console.log('!!!!!!!!!!!!!!!', question)
   useEffect(() => {
     dispatch(getAllQuestions());
+    dispatch(sessionActions.restore());
   }, [dispatch])
 
   return (

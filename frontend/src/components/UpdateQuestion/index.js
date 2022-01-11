@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import * as questionActions from '../../store/question';
+import * as sessionActions from '../../store/session';
 
 
-const AddQuestion = () => {
+const UpdateQuestion = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const sessionUser = useSelector((state) => state.session.user);
+  const questionId = useParams();
+  const sessionUser = useSelector((state)  => state.session.user);
+  const questions = useSelector(state => state.question.entries);
+  const { id } = questionId;
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+
   const [errors, setErrors] = useState([]);
 
+  useEffect(() => {
+    dispatch(questionActions.getAllQuestions());
+    dispatch(sessionActions.restore());
+  }, [dispatch, questions])
 
   useEffect(() => {
     const errors = [];
@@ -24,16 +33,17 @@ const AddQuestion = () => {
     setErrors(errors);
   }, [title, description]);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userId = sessionUser.id;
-    const newQuestion = {
-      ownerId: userId,
+    const editQuestion = {
+      id,
       title,
       description
     }
-    const question = await dispatch(questionActions.createQuestion(newQuestion))
-    history.push(`/questions/${question.id}`)
+    const question = await dispatch(questionActions.updateQuestion(editQuestion))
+    console.log('This is the edit question', question)
+    history.push(`/questions/${id}`);
   }
 
 
@@ -42,7 +52,7 @@ const AddQuestion = () => {
       <div className='form-container'>
         <form className='question-form' onSubmit={handleSubmit}>
           <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
           <label className='username-label'>
             Title
@@ -67,4 +77,4 @@ const AddQuestion = () => {
   )
 }
 
-export default AddQuestion;
+export default UpdateQuestion;

@@ -7,7 +7,6 @@ import * as sessionActions from '../../store/session';
 const QuestionDetail = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const sessionUser = useSelector(state => state.session.user);
   const questionId = useParams();
   const { id } = questionId;
   const questions = useSelector(state => state.question.entries);
@@ -26,7 +25,7 @@ const QuestionDetail = () => {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    const removed = await dispatch(deleteQuestion(choice))
+    await dispatch(deleteQuestion(choice))
     history.push('/');
   }
 

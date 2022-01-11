@@ -11,7 +11,7 @@ import './SignUpForm.css'
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const users = useSelector((state) => state.session.entries);
+  // const users = useSelector((state) => state.session.entries);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

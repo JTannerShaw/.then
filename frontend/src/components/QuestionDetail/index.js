@@ -3,6 +3,7 @@ import { NavLink, useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllQuestions, deleteQuestion } from "../../store/question";
 import * as sessionActions from '../../store/session';
+import './QuestionDetail.css'
 
 const QuestionDetail = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const QuestionDetail = () => {
       <div className='question-container'>
         <h1>{choice?.title}</h1>
         <p>{choice?.description}</p>
-        <NavLink to={`/questions/${id}/edit`}>Edit</NavLink>
+        <NavLink className='edit-button' to={`/questions/${id}/edit`}>Edit</NavLink>
         <button className="delete-button" onClick={handleDelete} type='submit'>Delete Question</button>
       </div>
     </div>

@@ -55,7 +55,6 @@ const AddQuestion = () => {
             required />
           </label>
           <label className='description-label'>
-
             <textarea
             value={description}
             placeholder='Description'

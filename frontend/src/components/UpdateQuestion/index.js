@@ -10,15 +10,17 @@ const UpdateQuestion = () => {
   const history = useHistory();
   const questionId = useParams();
   const sessionUser = useSelector((state)  => state.session.user);
+  const questions = useSelector(state => state.question.entries);
   const { id } = questionId;
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     dispatch(questionActions.getAllQuestions());
     dispatch(sessionActions.restore());
-  }, [dispatch])
+  }, [dispatch, questions])
 
   useEffect(() => {
     const errors = [];

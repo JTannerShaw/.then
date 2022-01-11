@@ -61,7 +61,6 @@ export const updateQuestion = (data) => async dispatch => {
   });
   if (response.ok) {
     const data = await response.json();
-    console.log('!!!!!DATA!!!!!!!!!', data);
     dispatch(editQuestion(data))
     return data;
   }

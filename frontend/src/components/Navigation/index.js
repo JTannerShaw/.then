@@ -13,10 +13,10 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
 
     sessionLinks = (
-      <ul>
-        <QuestionModal />
+      <ul className='header'>
         <NavLink to='/' className='home-button'>Home</NavLink>
-        <ProfileButton className='profile-dropdown' user={sessionUser} />
+        <QuestionModal />
+        <ProfileButton user={sessionUser} />
       </ul>
     );
     return (

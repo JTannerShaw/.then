@@ -27,7 +27,7 @@ function App() {
             <HomePage />
           </Route>
           <Route path='/signup'>
-            {/* <SplashImage /> */}
+            <SplashImage />
             <SignUpForm />
           </Route>
           <Route exact path='/questions/:id'>

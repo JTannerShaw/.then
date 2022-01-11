@@ -41,11 +41,6 @@ html, body, input, textarea, button, select, a {
   z-index: 2;
 }
 
-.userLabel, .passLabel {
-  padding: 1px;
-  font-weight: bold;
-}
-
 #username {
   background-color: white;
   margin-bottom: 10px;
@@ -70,6 +65,15 @@ html, body, input, textarea, button, select, a {
 .signup-direct {
   text-decoration: none;
   padding-bottom: 15px;
+  font-size: 22px;
+}
+
+.signup-direct:visited {
+  color: black;
+  cursor: pointer;
+}
+
+.signup-direct:hover {
   font-weight: bold;
 }
 
@@ -81,4 +85,9 @@ html, body, input, textarea, button, select, a {
 
 .usernameLabel, .passwordLabel {
   margin: 0;
+}
+
+.userInput, .passInput {
+  border: 2px;
+  border-style: inset;
 }

@@ -70,10 +70,8 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className='main'>
-      <SplashImage />
-    <div className='form-container'>
-      <div className='form-wrapper'>
+    <div className='signupform-container'>
+      <div className='signupform-wrapper'>
         <h1 className="login-header">.then()</h1>
         <form className="signup-form" onSubmit={handleSubmit}>
           <ul>
@@ -83,6 +81,7 @@ const SignUpForm = () => {
             <p className="emailLabel">Email</p>
             <input
               type='text'
+              className='emailInput'
               value={email}
               placeholder='Email'
               onChange={(e) => setEmail(e.target.value)}
@@ -94,6 +93,7 @@ const SignUpForm = () => {
             <input
               type='text'
               value={username}
+              className="userInput"
               placeholder="Username"
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -104,6 +104,7 @@ const SignUpForm = () => {
             <input
               type='password'
               value={password}
+              className="passInput"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -113,18 +114,18 @@ const SignUpForm = () => {
             <p className='confirmPassLabel'>Confirm Password</p>
             <input
               type='password'
+              className="passInput"
               value={confirmPassword}
               placeholder="Confirm Password"
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
           </label>
-          <button type='submit' disabled={errors.length === 0 ? false : true}>Sign Up</button>
+          <button className='signup-button' type='submit' disabled={errors.length === 0 ? false : true}>Sign Up</button>
         </form>
         <p>Already a .then member?</p><Link to='/' className='login-direct'>Login!</Link>
         <Footer />
       </div>
-    </div>
     </div>
   )
 }

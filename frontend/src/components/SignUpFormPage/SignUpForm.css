@@ -1,4 +1,4 @@
-.main-container {
+/* .main-container {
   height: auto;
   min-height: 100%;
   width: 100%;
@@ -6,9 +6,15 @@
   background-image: url('../../../public/images/login.jpg');
   background-position: center;
   background-size: cover;
+} */
+
+
+
+#root {
+  height: 100vh;
 }
 
-.form-container {
+.signupform-container {
   display: flex;
   align-content: space-between;
   justify-content: center;
@@ -20,7 +26,7 @@
   text-decoration: none;
 }
 
-.form-wrapper {
+.signupform-wrapper {
   border-radius: 20px;
   background-color: white;
   display: flex;
@@ -47,6 +53,7 @@
 .emailLabel, .userLabel, .passLabel, .confirmPassLabel {
   padding: 1px;
   font-weight: bold;
+  margin: 0;
 }
 
 #username {
@@ -72,6 +79,33 @@
 
 .login-direct {
   text-decoration: none;
-  font-weight: bold;
+  font-size: 22px;
   padding-bottom: 15px;
+}
+
+.login-direct:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.login-direct:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.signup-button {
+  border-radius: 5px;
+  border: none;
+  background-color: lightblue;
+  font-weight: 700;
+  padding: .5em 1em;
+  margin: 10px;
+  text-transform: uppercase;
+  transition: background-color .25s, color .25s;
+  cursor: pointer;
+}
+
+.passInput, .userInput, .emailInput {
+  border: 2px;
+  border-style: inset;
 }

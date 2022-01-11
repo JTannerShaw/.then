@@ -46,15 +46,17 @@ const LoginFormPage = () => {
               type='text'
               placeholder='Username'
               id='username'
+              className='userInput'
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
             />
           </label>
           <label className="passLabel">
-            <p className='passwordLabel'>Password:</p>
+            <p className='passwordLabel'>Password</p>
             <input
               type='password'
               placeholder='Password'
+              className='passInput'
               id='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}

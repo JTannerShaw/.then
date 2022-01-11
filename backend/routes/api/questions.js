@@ -23,7 +23,7 @@ router.post('/', asyncHandler(async (req, res) => {
     title,
     description
   })
-  return res.status(201).json({question});
+  return res.status(201).json(question);
 }))
 
 router.delete('/:id(\\d+)', asyncHandler(async (req, res, next) => {
@@ -44,7 +44,7 @@ router.put('/:id(\\d+)', asyncHandler(async (req, res, next) => {
       title,
       description
     });
-    res.json({question});
+    return res.json(question);
   } else {
     next();
   }

@@ -33,8 +33,7 @@ const AddQuestion = () => {
       description
     }
     const question = await dispatch(questionActions.createQuestion(newQuestion))
-    console.log('this is the new question!!!!!!!', question.question.id);
-    history.push(`/questions/${question.question.id}`)
+    history.push(`/questions/${question.id}`)
   }
 
 

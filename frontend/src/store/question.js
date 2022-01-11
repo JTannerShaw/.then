@@ -2,7 +2,7 @@ import { csrfFetch } from './csrf';
 
 const LOAD = 'question/LOAD'
 const ADD_ONE = 'question/ADD_ONE';
-
+const UPDATE = 'question/UPDATE'
 
 const load = (list) => ({
     type: LOAD,
@@ -11,6 +11,11 @@ const load = (list) => ({
 
 const addOneQuestion = (question) => ({
   type: ADD_ONE,
+  question
+})
+
+const editQuestion = (question) => ({
+  type: UPDATE,
   question
 })
 
@@ -54,6 +59,12 @@ export const updateQuestion = (data) => async dispatch => {
     },
     body: JSON.stringify(data)
   });
+  if (response.ok) {
+    const data = await response.json();
+    console.log('!!!!!DATA!!!!!!!!!', data);
+    dispatch(editQuestion(data))
+    return data;
+  }
 }
 
 const initialState = {entries: []};
@@ -63,29 +74,12 @@ const questionReducer = (state = initialState, action) => {
   switch(action.type) {
     case LOAD: {
       return {...state, entries: [...action.list]}
-      // const allQuestions = {};
-      // action.list.forEach((question) => {
-      //   allQuestions[question.id] = question;
-      // });
-      // return {
-      //   ...allQuestions,
-      //   ...state
-      // };
     }
-    // case LOAD: {
-    //   return {...state, entries: [...action.list]}
-    // }
     case ADD_ONE: {
       return {...state, entries: [...state.entries, action.question]}
-      // if (!state[action.question.id]) {
-      //   const newState = {
-      //     ...state,
-      //     [action.question.id]: action.question
-      //   }
-      //   const questionList = newState.list.map((id) => newState[id]);
-      //   questionList.push(action.question);
-      //   return newState;
-      // }
+    }
+    case UPDATE: {
+      return {...state, [action.data]: action.id}
     }
     default:
       return state;

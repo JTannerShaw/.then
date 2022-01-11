@@ -18,9 +18,6 @@ const QuestionDetail = () => {
     dispatch(sessionActions.restore())
   }, [dispatch]);
 
-  // console.log('this is the question', questions[0].id);
-  // console.log(id);
-  // console.log('this is the choice', choice);
   if (!choice) {
     return (
       <h1>No Question Found</h1>

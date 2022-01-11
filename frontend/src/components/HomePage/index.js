@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import ProfileButton from './ProfileButton'
 import { getAllQuestions } from "../../store/question";
 import * as sessionActions from '../../store/session';
+import './HomePage.css'
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -17,12 +18,12 @@ const HomePage = () => {
 
   return (
     <div className="question-wrapper">
-      <h1>You made it to the home page!</h1>
+      <h1 className="title">.then()</h1>
       {question && question.map((question) => {
         return (
           <div className="question-container">
-          <NavLink key={question.id} to={`/questions/${question.id}`}>{question.title}</NavLink>
-          <p>{question.description}</p>
+          <NavLink className='question-title' key={question.id} to={`/questions/${question.id}`}>{question.title}</NavLink>
+          <p className='question-description'>{question.description}</p>
           </div>
         )
      })}

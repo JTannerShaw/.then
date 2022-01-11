@@ -28,15 +28,15 @@ const SignUpForm = () => {
     if (username.length === 0) {
       errors.push('Username field is required');
     }
+    if (username.length > 50) {
+      errors.push('Username must be 30 characters or less');
+    }
     const newName = users.find(user => user.username === username);
     const newEmail = users.find(user => user.email === email);
     if (newName || newEmail) {
       errors.push('Username or Email already exists');
-    }
-    if (username.length > 50) {
-      errors.push('Username must be 30 characters or less');
-    }
-    // console.log(users);
+  }
+  // console.log(users);
     if (email.length === 0) {
       errors.push('Email field is required');
     }

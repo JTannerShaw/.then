@@ -30,10 +30,8 @@ router.delete('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   const question = await Question.findByPk(req.params.id);
   if (question) {
     await question.destroy()
-    res.status(204).end()
-  } else {
-    next();
   }
+  return res.json(question);
 }))
 
 router.put('/:id(\\d+)', asyncHandler(async (req, res, next) => {

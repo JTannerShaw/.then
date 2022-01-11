@@ -24,6 +24,7 @@ const HomePage = () => {
           <div className="question-container">
           <NavLink className='question-title' key={question.id} to={`/questions/${question.id}`}>{question.title}</NavLink>
           <p className='question-description'>{question.description}</p>
+          <p className='createdat-question'>{question.createdAt}</p>
           </div>
         )
      })}

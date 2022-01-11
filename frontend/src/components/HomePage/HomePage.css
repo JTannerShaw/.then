@@ -15,10 +15,11 @@ background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(194,194,194,0.38195
 
 .question-container {
   border: 1px solid black;
-  border-radius: 1px;
+  border-radius: 15px;
   margin: 10px;
   padding: 7px;
-  background-color: white;
+  /* background-color: white; */
+
 }
 
 .question-title {
@@ -34,12 +35,37 @@ background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(194,194,194,0.38195
 }
 
 .profile-dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border: 1px solid black;
+  border-radius: 5px;
   list-style: none;
   padding: 5px;
 }
 
 .profile-dropdown > li {
-  padding: 5px;
+  padding: 8px;
   margin: 5px;
+}
+
+.logout-button {
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.profile-button {
+  text-decoration: none;
+  cursor: pointer;
+}
+.profile-button:visited {
+  color: black;
+  cursor: pointer;
+}
+
+.profile-button:hover {
+  font-weight: bold;
 }

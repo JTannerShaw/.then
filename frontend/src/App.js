@@ -8,6 +8,7 @@ import HomePage from './components/HomePage';
 import SplashPage from './components/SplashPage';
 import QuestionDetail from "./components/QuestionDetail";
 import UpdateQuestion from "./components/UpdateQuestion";
+import SplashImage from "./components/SplashImage";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
             <HomePage />
           </Route>
           <Route path='/signup'>
+            {/* <SplashImage /> */}
             <SignUpForm />
           </Route>
           <Route exact path='/questions/:id'>

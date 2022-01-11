@@ -55,7 +55,7 @@ html, body, input, textarea, button, select, a {
   background-color: rgba(255, 255, 255, 1);
 }
 
-.login-button {
+.login-button, .demo-button {
   border-radius: 5px;
   border: none;
   background-color: lightblue;
@@ -77,4 +77,8 @@ html, body, input, textarea, button, select, a {
   margin-top: 50px;
   font-size: 50px;
   font-family: 'Roboto Mono', monospace;
+}
+
+.usernameLabel, .passwordLabel {
+  margin: 0;
 }

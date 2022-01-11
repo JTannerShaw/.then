@@ -23,8 +23,8 @@ const SignUpForm = () => {
   }, [dispatch])
 
 
-    // const newName = users.find(user => user.username === username);
-    // const newEmail = users.find(user => user.email === email);
+  // const newName = users.find(user => user.username === username);
+  // const newEmail = users.find(user => user.email === email);
   useEffect(() => {
     const errors = [];
     if (username.length === 0) {
@@ -33,10 +33,10 @@ const SignUpForm = () => {
     if (username.length > 50) {
       errors.push('Username must be 30 characters or less');
     }
-  //   if (newName || newEmail) {
-  //     errors.push('Username or Email already exists');
-  // }
-  // console.log(users);
+    //   if (newName || newEmail) {
+    //     errors.push('Username or Email already exists');
+    // }
+    // console.log(users);
     if (email.length === 0) {
       errors.push('Email field is required');
     }
@@ -44,7 +44,7 @@ const SignUpForm = () => {
       errors.push('Must provide a password')
     }
     setErrors(errors);
-  },[username, email, password, confirmPassword])
+  }, [username, email, password, confirmPassword])
 
   if (sessionUser) return <Redirect to='/' />;
 
@@ -53,20 +53,20 @@ const SignUpForm = () => {
     e.preventDefault();
     // console.log(password, confirmPassword)
     if (password === confirmPassword) {
-    setErrors([]);
-    console.log(setErrors);
-    const newUser = {
-      username,
-      email,
-      password
+      setErrors([]);
+      console.log(setErrors);
+      const newUser = {
+        username,
+        email,
+        password
+      }
+      return dispatch(sessionActions.signup(newUser))
+        .catch(async (res) => {
+          const data = await res.json();
+          if (data && data.errors) setErrors(data.errors);
+        })
     }
-    return dispatch(sessionActions.signup(newUser))
-    .catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setErrors(data.errors);
-    })
-  }
-  return setErrors(['Confirm Password field must be the same as the Password field'])
+    return setErrors(['Confirm Password field must be the same as the Password field'])
   }
 
   return (
@@ -74,13 +74,13 @@ const SignUpForm = () => {
       <SplashImage />
     <div className='form-container'>
       <div className='form-wrapper'>
-      <h1 className="login-header">.then()</h1>
+        <h1 className="login-header">.then()</h1>
         <form className="signup-form" onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
           <label className='emailLabel'>
-            Email
+            <p className="emailLabel">Email</p>
             <input
               type='text'
               value={email}
@@ -90,7 +90,7 @@ const SignUpForm = () => {
             />
           </label>
           <label className='userLabel'>
-            Username
+            <p className='userLabel'>Username</p>
             <input
               type='text'
               value={username}
@@ -100,7 +100,7 @@ const SignUpForm = () => {
             />
           </label>
           <label className="passLabel">
-            Password
+            <p className='passLabel'>Password</p>
             <input
               type='password'
               value={password}
@@ -110,7 +110,7 @@ const SignUpForm = () => {
             />
           </label>
           <label className="confirmPassLabel">
-            Confirm Password
+            <p className='confirmPassLabel'>Confirm Password</p>
             <input
               type='password'
               value={confirmPassword}

@@ -41,7 +41,7 @@ const LoginFormPage = () => {
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
           <label className="userLabel">
-            Username or Email:
+          <p className="usernameLabel">Username or Email</p>
             <input
               type='text'
               placeholder='Username'
@@ -51,7 +51,7 @@ const LoginFormPage = () => {
             />
           </label>
           <label className="passLabel">
-            Password:
+            <p className='passwordLabel'>Password:</p>
             <input
               type='password'
               placeholder='Password'
@@ -60,7 +60,7 @@ const LoginFormPage = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
-          <button className='login-button' type='submit'>Log In</button>
+          <button className='login-button' type='submit'>Login</button>
           <button className="demo-button" onClick={handleDemo}>Demo User</button>
           </form>
           <p>Not a .then member?</p><Link className='signup-direct' to='signup'>Sign Up!</Link>

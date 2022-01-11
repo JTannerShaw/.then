@@ -51,15 +51,16 @@ const SignUpForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // console.log(password, confirmPassword)
     if (password === confirmPassword) {
     setErrors([]);
-
+    console.log(setErrors);
     const newUser = {
       username,
       email,
       password
     }
-    const user = await dispatch(sessionActions.signup(newUser))
+    return dispatch(sessionActions.signup(newUser))
     .catch(async (res) => {
       const data = await res.json();
       if (data && data.errors) setErrors(data.errors);

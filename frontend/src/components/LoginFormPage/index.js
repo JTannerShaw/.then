@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Link, useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import Footer from "../Footer";
-import SignUpForm from "../SignUpFormPage";
 import './LoginForm.css'
 
 const LoginFormPage = () => {

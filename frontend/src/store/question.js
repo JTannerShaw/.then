@@ -40,10 +40,9 @@ export const getAllQuestions = () => async dispatch => {
 
 export const getQuestion = (id) => async dispatch => {
   const response = await csrfFetch(`/api/questions/${id}`);
-
   if (response.ok) {
     const list = await response.json();
-    dispatch(load(list))
+    dispatch(addOneQuestion(list))
   }
 }
 
@@ -57,32 +56,36 @@ export const updateQuestion = (data) => async dispatch => {
   });
 }
 
-const initialState = {};
+const initialState = {entries: []};
 
 const questionReducer = (state = initialState, action) => {
+  let newState;
   switch(action.type) {
     case LOAD: {
-      const allQuestions = {};
-      action.list.forEach((question) => {
-        allQuestions[question.id] = question;
-      });
-      return {
-        ...allQuestions,
-        ...state,
-        list: action.list
-      };
+      return {...state, entries: [...action.list]}
+      // const allQuestions = {};
+      // action.list.forEach((question) => {
+      //   allQuestions[question.id] = question;
+      // });
+      // return {
+      //   ...allQuestions,
+      //   ...state
+      // };
     }
+    // case LOAD: {
+    //   return {...state, entries: [...action.list]}
+    // }
     case ADD_ONE: {
-      if (!state[action.question.id]) {
-        const newState = {
-          ...state,
-          [action.question.id]: action.question
-        }
-        const questionList = newState.list.map((id) => newState[id]);
-        questionList.push(action.question);
-        newState.list = questionList;
-        return newState;
-      }
+      return {...state, entries: [...state.entries, action.question]}
+      // if (!state[action.question.id]) {
+      //   const newState = {
+      //     ...state,
+      //     [action.question.id]: action.question
+      //   }
+      //   const questionList = newState.list.map((id) => newState[id]);
+      //   questionList.push(action.question);
+      //   return newState;
+      // }
     }
     default:
       return state;

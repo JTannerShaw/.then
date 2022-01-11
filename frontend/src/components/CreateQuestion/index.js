@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import * as questionActions from '../../store/question';
 
 
 const AddQuestion = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -31,7 +33,8 @@ const AddQuestion = () => {
       description
     }
     const question = await dispatch(questionActions.createQuestion(newQuestion))
-    return question;
+    console.log('this is the new question!!!!!!!', question.question.id);
+    history.push(`/questions/${question.question.id}`)
   }
 
 

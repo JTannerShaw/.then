@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams, useHistory } from 'react-router-dom';
 import * as questionActions from '../../store/question';
 
-
-const AddQuestion = () => {
+const UpdateQuestion = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const questionId = useParams();
+  const { id } = questionId;
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [errors, setErrors] = useState([]);
@@ -24,11 +27,12 @@ const AddQuestion = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newQuestion = {
+    const editQuestion = {
+      id,
       title,
       description
     }
-    const question = await dispatch(questionActions.updateQuestion(newQuestion))
+    const question = await dispatch(questionActions.updateQuestion(editQuestion))
     return question;
   }
 
@@ -63,4 +67,4 @@ const AddQuestion = () => {
   )
 }
 
-export default AddQuestion;
+export default UpdateQuestion;

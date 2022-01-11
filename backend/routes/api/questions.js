@@ -11,7 +11,7 @@ router.get('/', asyncHandler(async (req, res) => {
   return res.json( questions );
 }))
 
-router.get('/:id(\\d+)', asyncHandler(async (req, res) =>{
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const question = await Question.findByPk(req.params.id);
   return res.json( question )
 }))
@@ -23,7 +23,7 @@ router.post('/', asyncHandler(async (req, res) => {
     title,
     description
   })
-  res.status(201).json({question});
+  return res.status(201).json({question});
 }))
 
 router.delete('/:id(\\d+)', asyncHandler(async (req, res, next) => {

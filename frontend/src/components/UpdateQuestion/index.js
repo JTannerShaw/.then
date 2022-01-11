@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory, Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useParams, useHistory } from 'react-router-dom';
 import * as questionActions from '../../store/question';
 import * as sessionActions from '../../store/session';
 
@@ -9,8 +9,8 @@ const UpdateQuestion = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const questionId = useParams();
-  const sessionUser = useSelector((state) => state.session.user);
-  const questions = useSelector(state => state.question.entries);
+  // const sessionUser = useSelector((state) => state.session.user);
+  // const questions = useSelector(state => state.question.entries);
   const { id } = questionId;
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -41,7 +41,7 @@ const UpdateQuestion = () => {
       title,
       description
     }
-    const question = await dispatch(questionActions.updateQuestion(editQuestion));
+    await dispatch(questionActions.updateQuestion(editQuestion));
     // console.log('This is the edit question', question);
     history.push(`/questions/${id}`)
   }

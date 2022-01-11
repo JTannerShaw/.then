@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton'
 import QuestionModal from "../QuestionModal";
@@ -13,10 +13,10 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
 
     sessionLinks = (
-      <ul>
-        <QuestionModal />
+      <ul className='header'>
         <NavLink to='/' className='home-button'>Home</NavLink>
-        <ProfileButton className='profile-dropdown' user={sessionUser} />
+        <QuestionModal />
+        <ProfileButton user={sessionUser} />
       </ul>
     );
     return (

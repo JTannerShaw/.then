@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import * as questionActions from '../../store/question';
-
+import './CreateQuestion.css'
 
 const AddQuestion = () => {
   const dispatch = useDispatch();
@@ -41,11 +41,12 @@ const AddQuestion = () => {
     <div className='add-question-main'>
       <div className='form-container'>
         <form className='question-form' onSubmit={handleSubmit}>
+          <h1>New Question</h1>
           <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          {errors.map((error, idx) => <li className='errors' key={idx}>{error}</li>)}
           </ul>
-          <label className='username-label'>
-            Title
+          <label className='title-label'>
+
             <input
             type='text'
             value={title}
@@ -54,6 +55,7 @@ const AddQuestion = () => {
             required />
           </label>
           <label className='description-label'>
+
             <textarea
             value={description}
             placeholder='Description'

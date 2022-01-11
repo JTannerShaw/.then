@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink, Redirect, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
-
+import './Navigation.css'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -34,17 +34,17 @@ function ProfileButton({ user }) {
 
   return (
     <>
-    <button onClick={openMenu}>
+    <button className='profile-dropdown' onClick={openMenu}>
       {/* <i className='drop-down' /> */}
       {user.username}
     </button>
     {showMenu && (
       <ul className='profile-dropdown'>
-        <li>{user.username}</li>
-        <li>{user.email}</li>
-        <NavLink to={`/user`}>Profile</NavLink>
+        <li className='username-dropdown'>{user.username}</li>
+        <li className='email-dropdown'>{user.email}</li>
+        <NavLink className='profile-button' to={`/user`}>Profile</NavLink>
         <li>
-          <button onClick={logout}>Log Out</button>
+          <button className='logout-button' onClick={logout}>Log Out</button>
         </li>
       </ul>
     )}

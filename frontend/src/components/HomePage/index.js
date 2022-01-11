@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NavLink, Redirect, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 // import ProfileButton from './ProfileButton'
 import { getAllQuestions } from "../../store/question";
@@ -8,7 +8,6 @@ import './HomePage.css'
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { questionId } = useParams();
   const question = useSelector(state => state.question.entries)
   // console.log('!!!!!!!!!!!!!!!', question)
   useEffect(() => {

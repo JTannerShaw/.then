@@ -3,6 +3,7 @@ import { Modal } from '../../context/Modal';
 import CreateQuestion from '../CreateQuestion';
 import '../Navigation/Navigation.css';
 
+
 function QuestionModal() {
   const [showModal, setShowModal] = useState(false);
 

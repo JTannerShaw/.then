@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllQuestions, deleteQuestion } from "../../store/question";
@@ -9,6 +9,7 @@ const QuestionDetail = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const questionId = useParams();
+
   const { id } = questionId;
   const questions = useSelector(state => state.question.entries);
   const choice = questions.find(question => question.id === +id)

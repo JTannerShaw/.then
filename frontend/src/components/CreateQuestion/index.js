@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import * as questionActions from '../../store/question';
@@ -61,7 +61,7 @@ const AddQuestion = () => {
             onChange={(e) => setDescription(e.target.value)}
             required />
           </label>
-          <button type='submit' disabled={errors.length === 0 ? false : true}>Submit Question</button>
+          <button className='submit-question' type='submit' disabled={errors.length === 0 ? false : true}>Submit Question</button>
         </form>
       </div>
     </div>

@@ -22,3 +22,14 @@
   text-align: center;
   padding: 3px;
 }
+
+.submit-question {
+  border: none;
+  background-color: lightblue;
+  border-radius: 5px;
+  padding: .5em 1em;
+  margin: 10px;
+  text-transform: uppercase;
+  transition: background-color .25s, color .25s;
+  cursor: pointer;
+}

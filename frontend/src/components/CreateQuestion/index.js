@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import * as questionActions from '../../store/question';
 import './CreateQuestion.css'
 
-const AddQuestion = () => {
+const AddQuestion = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
@@ -32,6 +32,7 @@ const AddQuestion = () => {
       description
     }
     const question = await dispatch(questionActions.createQuestion(newQuestion))
+    setShowModal(false);
     history.push(`/questions/${question.id}`)
   }
 

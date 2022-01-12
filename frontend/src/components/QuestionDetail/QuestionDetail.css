@@ -59,3 +59,24 @@
   padding: 7px;
   background-color: white;
 }
+
+.related-questions-container {
+  position: fixed;
+  top: 100px;
+  left: 1500px;
+  text-align: right;
+}
+
+.related-question {
+  text-decoration: none;
+  
+}
+
+.related-question:visited {
+  color: black;
+}
+
+.related-question:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}

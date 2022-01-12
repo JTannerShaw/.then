@@ -36,8 +36,8 @@ const QuestionDetail = () => {
   }
 
   return (
-    <div className='question-wrapper'>
-      <div className='question-container'>
+    <div className='question-detail-wrapper'>
+      <div className='question-detail-container'>
         <h1>{choice?.title}</h1>
         <p>{choice?.description}</p>
         {sessionUser?.id === choice.ownerId ? <NavLink className='edit-button' to={`/questions/${id}/edit`}>Edit</NavLink> : <></>}

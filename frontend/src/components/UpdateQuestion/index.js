@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import * as questionActions from '../../store/question';
 import * as sessionActions from '../../store/session';
-
+import './UpdateQuestion.css'
 
 const UpdateQuestion = () => {
   const dispatch = useDispatch();
@@ -48,14 +48,14 @@ const UpdateQuestion = () => {
 
 
   return (
-    <div className='add-question-main'>
+    <div className='edit-question-main'>
+      <h1 className='edit-question-title'>Edit Question</h1>
       <div className='form-container'>
         <form className='question-form' onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
           <label className='username-label'>
-            Title
             <input
               type='text'
               value={title}
@@ -70,7 +70,7 @@ const UpdateQuestion = () => {
               onChange={(e) => setDescription(e.target.value)}
               required />
           </label>
-          <button type='submit' disabled={errors.length === 0 ? false : true}>Submit Question</button>
+          <button className='edit-question-button' type='submit' disabled={errors.length === 0 ? false : true}>Submit Question</button>
         </form>
       </div>
     </div>

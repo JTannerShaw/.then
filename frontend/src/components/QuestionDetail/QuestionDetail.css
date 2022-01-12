@@ -23,3 +23,20 @@ border-radius: 5px;
   font-weight: bold;
 }
 
+
+.question-detail-wrapper {
+  background-color: rgba(129, 133, 137, 0.1);
+  height: 100%;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.question-detail-container {
+  /* border: 1px solid black; */
+  box-shadow: 0 0 8px rgb(131, 130, 130);
+  border-radius: 3px;
+  margin: 10px;
+  padding: 7px;
+  background-color: white;
+
+}

@@ -1,0 +1,22 @@
+.edit-question-main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-question-title {
+  margin-top: 100px;
+}
+
+
+.edit-question-button {
+    border: none;
+    background-color: lightblue;
+    border-radius: 5px;
+    padding: .5em 1em;
+    margin: 10px;
+    text-transform: uppercase;
+    transition: background-color .25s, color .25s;
+    cursor: pointer;
+}

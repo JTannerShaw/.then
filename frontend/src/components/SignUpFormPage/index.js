@@ -4,14 +4,12 @@ import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import Footer from "../Footer";
-import SplashImage from "../SplashImage";
 import './SignUpForm.css'
 
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  // const users = useSelector((state) => state.session.entries);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,8 +21,6 @@ const SignUpForm = () => {
   }, [dispatch])
 
 
-  // const newName = users.find(user => user.username === username);
-  // const newEmail = users.find(user => user.email === email);
   useEffect(() => {
     const errors = [];
     if (username.length === 0) {
@@ -33,10 +29,6 @@ const SignUpForm = () => {
     if (username.length > 50) {
       errors.push('Username must be 30 characters or less');
     }
-    //   if (newName || newEmail) {
-    //     errors.push('Username or Email already exists');
-    // }
-    // console.log(users);
     if (email.length === 0) {
       errors.push('Email field is required');
     }
@@ -51,7 +43,6 @@ const SignUpForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(password, confirmPassword)
     if (password === confirmPassword) {
       setErrors([]);
       console.log(setErrors);
@@ -123,7 +114,7 @@ const SignUpForm = () => {
           </label>
           <button className='signup-button' type='submit' disabled={errors.length === 0 ? false : true}>Sign Up</button>
         </form>
-        <p>Already a .then member?</p><Link to='/' className='login-direct'>Login!</Link>
+        <p>Already a .then() member?</p><Link to='/' className='login-direct'>Login!</Link>
         <Footer />
       </div>
     </div>

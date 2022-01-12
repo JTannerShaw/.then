@@ -9,7 +9,6 @@ import SplashPage from './components/SplashPage';
 import QuestionDetail from "./components/QuestionDetail";
 import UpdateQuestion from "./components/UpdateQuestion";
 import SplashImage from "./components/SplashImage";
-import LeftBar from "./components/LeftBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,7 +24,6 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <SplashPage />
-            {/* <LeftBar /> */}
             <HomePage />
           </Route>
           <Route path='/signup'>

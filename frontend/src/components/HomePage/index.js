@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllQuestions } from "../../store/question";
 import * as sessionActions from '../../store/session';
 import './HomePage.css'
+import HomePageModal from "../HomepageModal";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const HomePage = () => {
     dispatch(getAllQuestions());
     dispatch(sessionActions.restore());
   }, [dispatch])
+
 
   return (
     <div className="question-wrapper">
@@ -33,13 +35,12 @@ const HomePage = () => {
       </ul>
       </div>
       <div className='article-container'>
-      <form>
-        <textarea  placeholder={`${sessionUser.username}, what do you want to ask?`} rows='4' className='create-new-question-homepage'></textarea>
-      </form>
+      <HomePageModal />
       {question && question.map((question) => {
         return (
           <div className="question-container">
           <NavLink className='question-title' key={question.id} to={`/questions/${question.id}`}>{question.title}</NavLink>
+          <p className="the-usersname">Asked by {sessionUser.username}</p>
           <p className='question-description'>{question.description}</p>
           </div>
         )

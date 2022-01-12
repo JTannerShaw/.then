@@ -40,7 +40,7 @@ const HomePage = () => {
         return (
           <div className="question-container">
           <NavLink className='question-title' key={question.id} to={`/questions/${question.id}`}>{question.title}</NavLink>
-          <p className="the-usersname">Asked by {sessionUser.username}</p>
+          <p className="the-usersname">Asked by {sessionUser?.username}</p>
           <p className='question-description'>{question.description}</p>
           </div>
         )

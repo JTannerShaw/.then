@@ -59,6 +59,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(194,194,194,0.38195
 
 .profile-button {
   text-decoration: none;
+  color: black;
   cursor: pointer;
 }
 .profile-button:visited {

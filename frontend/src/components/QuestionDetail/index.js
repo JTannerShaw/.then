@@ -18,6 +18,7 @@ const QuestionDetail = () => {
   console.log(sessionUser.id);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(getAllQuestions())
     dispatch(sessionActions.restore())
   }, [dispatch]);

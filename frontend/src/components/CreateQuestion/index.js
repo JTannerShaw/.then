@@ -12,7 +12,6 @@ const AddQuestion = () => {
   const [description, setDescription] = useState('');
   const [errors, setErrors] = useState([]);
 
-
   useEffect(() => {
     const errors = [];
     if (title.length === 0) {
@@ -41,7 +40,7 @@ const AddQuestion = () => {
     <div className='add-question-main'>
       <div className='form-container'>
         <form className='question-form' onSubmit={handleSubmit}>
-          <h1>New Question</h1>
+          <h1>Ask a Question</h1>
           <ul>
           {errors.map((error, idx) => <li className='errors' key={idx}>{error}</li>)}
           </ul>

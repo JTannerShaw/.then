@@ -33,15 +33,15 @@ const LoginFormPage = () => {
     return dispatch(sessionActions.login({ credential: 'Demo-user', password: 'password' }))
   }
   return (
-      <div className="form-container">
-        <div className='form-wrapper'>
-          <h1 className="login-header">.then()</h1>
-          <form className="login-form" onSubmit={handleSubmit}>
+    <div className="form-container">
+      <div className='form-wrapper'>
+        <h1 className="login-header">.then()</h1>
+        <form className="login-form" onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
           <label className="userLabel">
-          <p className="usernameLabel">Username or Email</p>
+            <p className="usernameLabel">Username or Email</p>
             <input
               type='text'
               placeholder='Username'
@@ -64,11 +64,11 @@ const LoginFormPage = () => {
           </label>
           <button className='login-button' type='submit'>Login</button>
           <button className="demo-button" onClick={handleDemo}>Demo User</button>
-          </form>
-          <p>Not a .then member?</p><Link className='signup-direct' to='signup'>Sign Up!</Link>
+        </form>
+        <p>Not a .then member?</p><Link className='signup-direct' to='signup'>Sign Up!</Link>
         <Footer />
-        </div>
       </div>
+    </div>
   )
 
 }

@@ -43,3 +43,13 @@
   transition: background-color .25s, color .25s;
   cursor: pointer;
 }
+
+.newquestion-button {
+  border-radius: 5px;
+  border: none;
+  background-color: lightblue;
+  padding: 5px;
+  margin: 10px;
+  transition: background-color .25s, color .25s;
+  cursor: pointer;
+}

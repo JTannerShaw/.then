@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton'
@@ -8,6 +8,9 @@ import './Navigation.css'
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
+  const [ setShowModal ] = useState(false);
+
+  const closeModal = () => setShowModal(false)
 
   let sessionLinks;
   if (sessionUser) {
@@ -16,7 +19,7 @@ function Navigation({ isLoaded }) {
       <div className='header-container'>
       <ul className='header'>
         <NavLink to='/' className='home-button'>Home</NavLink>
-        <QuestionModal />
+        <QuestionModal closeModal={closeModal} />
         <ProfileButton user={sessionUser} />
       </ul>
       </div>

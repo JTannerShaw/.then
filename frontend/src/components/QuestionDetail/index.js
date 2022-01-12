@@ -15,7 +15,7 @@ const QuestionDetail = () => {
   const sessionUser = useSelector(state => state.session.user);
   const choice = questions.find(question => question.id === +id)
 
-  console.log(sessionUser.id);
+  console.log(questions);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -36,12 +36,25 @@ const QuestionDetail = () => {
   }
 
   return (
-    <div className='question-detail-wrapper'>
-      <div className='question-detail-container'>
-        <h1>{choice?.title}</h1>
-        <p>{choice?.description}</p>
-        {sessionUser?.id === choice.ownerId ? <NavLink className='edit-button' to={`/questions/${id}/edit`}>Edit</NavLink> : <></>}
-        {sessionUser?.id === choice.ownerId ? <button className="delete-button" onClick={handleDelete} type='submit'>Delete Question</button> : <></>}
+    <div className='question-detail-container-wrapper'>
+      <div className='question-detail-wrapper'>
+        <div className='question-detail-container'>
+          <h1 className="question-title">{choice?.title}</h1>
+          <p className='the-usersname-edit'>{`Asked by ${sessionUser.username}`}</p>
+          <p className='question-description-edit'>{choice?.description}</p>
+          {sessionUser?.id === choice.ownerId ? <NavLink className='edit-button' to={`/questions/${id}/edit`}>Edit</NavLink> : <></>}
+          {sessionUser?.id === choice.ownerId ? <button className="delete-button" onClick={handleDelete} type='submit'>Delete Question</button> : <></>}
+        </div>
+      </div>
+      <div className='related-questions-container'>
+        <h2 className='related-questions-title'>Related Questions</h2>
+        {questions && questions.map((question) => {
+          return (
+            <div className="other-questions-container">
+              <NavLink key={question.id} className='related-question' to={`/questions/${question.id}`}>{question.title}</NavLink>
+            </div>
+          )
+        })}
       </div>
     </div>
   )

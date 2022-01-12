@@ -3,15 +3,45 @@
   justify-content: center;
   align-items: center;
   font-size: 80px;
+  grid-area: a;
   height: 80px;
   border: 0.1px;
 }
 
 
 .question-wrapper {
+  display: grid;
+  grid-template-areas:
+  'a a a'
+  'b c x'
+  'b c x';
   background-color: rgba(129, 133, 137, 0.1);
   height: 100%;
   width: 100%;
+}
+
+.article-container {
+  grid-area: c;
+}
+
+.create-new-question-homepage {
+  width: 98%;
+  resize: none;
+}
+
+.language-container {
+  position: fixed;
+  top: 80px;
+  left: 250px;
+}
+
+.leftbar-languages {
+  list-style: none;
+  margin: 10px;
+}
+
+.leftbar-languages > li {
+  padding: 10px;
 }
 
 .question-container {
@@ -21,8 +51,8 @@
   margin: 10px;
   padding: 7px;
   background-color: white;
-
 }
+
 
 .question-title {
   color: black;
@@ -71,4 +101,8 @@
 
 .profile-button:hover {
   font-weight: bold;
+}
+
+.language-container {
+  grid-area: a;
 }

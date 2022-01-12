@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllQuestions, deleteQuestion } from "../../store/question";
@@ -12,7 +12,10 @@ const QuestionDetail = () => {
 
   const { id } = questionId;
   const questions = useSelector(state => state.question.entries);
+  const sessionUser = useSelector(state => state.session.user);
   const choice = questions.find(question => question.id === +id)
+
+  console.log(sessionUser.id);
 
   useEffect(() => {
     dispatch(getAllQuestions())
@@ -36,8 +39,8 @@ const QuestionDetail = () => {
       <div className='question-container'>
         <h1>{choice?.title}</h1>
         <p>{choice?.description}</p>
-        <NavLink className='edit-button' to={`/questions/${id}/edit`}>Edit</NavLink>
-        <button className="delete-button" onClick={handleDelete} type='submit'>Delete Question</button>
+        {sessionUser?.id === choice.ownerId ? <NavLink className='edit-button' to={`/questions/${id}/edit`}>Edit</NavLink> : <></>}
+        {sessionUser?.id === choice.ownerId ? <button className="delete-button" onClick={handleDelete} type='submit'>Delete Question</button> : <></>}
       </div>
     </div>
   )

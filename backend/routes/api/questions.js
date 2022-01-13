@@ -8,14 +8,15 @@ const router = express.Router();
 
 router.get('/', asyncHandler(async (req, res) => {
   const questions = await Question.findAll({
-    include: {model: User}
+    include: { model: User },
+    order: [['createdAt', 'DESC']]
   });
-  return res.json( questions );
+  return res.json(questions);
 }))
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const question = await Question.findByPk(req.params.id);
-  return res.json( question )
+  return res.json(question)
 }))
 
 router.post('/', asyncHandler(async (req, res) => {

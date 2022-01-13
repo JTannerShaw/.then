@@ -9,5 +9,6 @@
   background-color: white;
   border: none;
   cursor: pointer;
+  margin-bottom: 20px;
   box-shadow: 0 0 8px rgb(131, 130, 130);
 }

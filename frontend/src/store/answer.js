@@ -42,8 +42,8 @@ export const createAnswer = (data) => async dispatch => {
 }
 
 
-export const deleteAnswer = (data) => async dispatch => {
-  const response = await csrfFetch(`/api/answers/${data.id}`, {
+export const deleteAnswer = (id) => async dispatch => {
+  const response = await csrfFetch(`/api/answers/${id}`, {
     method: 'DELETE',
   })
   if (response.ok) {
@@ -97,14 +97,14 @@ const answerReducer = (state = initialState, action) => {
       return {...state, entries: [...action.list]}
     }
     case ADD_ONE: {
-      return {...state, entries: [...state.entries, action.question]}
+      return {...state, entries: [...state.entries, action.answer]}
     }
     case UPDATE: {
       return {...state, [action.data]: action.id}
     }
     case REMOVE: {
       newState = { ...state }
-      delete newState[action.question]
+      delete newState[action.answer]
       return newState;
     }
     default:

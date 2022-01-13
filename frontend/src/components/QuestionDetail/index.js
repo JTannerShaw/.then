@@ -10,8 +10,8 @@ const QuestionDetail = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const questionId = useParams();
-console.log(questionId)
   const { id } = questionId;
+
   const questions = useSelector(state => state.question.entries);
   const sessionUser = useSelector(state => state.session.user);
   const answers = useSelector(state => state.answer.entries);
@@ -21,6 +21,7 @@ console.log(questionId)
   const questionsAnswers = answers.filter(answer => answer.questionId === +id);
 
 
+  console.log(questionsAnswers)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -45,7 +46,9 @@ console.log(questionId)
 
   const handleAnswerDelete = async (e) => {
     e.preventDefault();
-    await dispatch(answerActions.deleteAnswer(choice))
+    const id = e.target.value
+    await dispatch(answerActions.deleteAnswer(id))
+    history.push(`/questions/${id}`)
   }
 
   return (
@@ -64,9 +67,9 @@ console.log(questionId)
           <div className='answer-detail-wrapper'>
           <div className='answer-detail-container'>
             <p className=''>{answer.answer}</p>
-            <p className='answered-by'></p>
-            {sessionUser?.id === answer.userId ? <NavLink className='edit-button' to={`/questions/${id}/edit`}>Edit</NavLink> : <></>}
-            {sessionUser?.id === answer.userId ? <button className="delete-button" onClick={handleDelete} type='submit'>Delete Question</button> : <></>}
+            <p className='the-usersname-edit'>Answered by {answer?.User?.username}</p>
+            {sessionUser?.id === answer.userId ? <NavLink className='edit-button' to={'/'}>Edit</NavLink> : <></>}
+            {sessionUser?.id === answer.userId ? <button className="delete-button" value={answer.id} onClick={handleAnswerDelete} type='submit'>Delete Answer</button> : <></>}
             </div>
             </div>
         )
@@ -84,5 +87,6 @@ console.log(questionId)
     </div>
   )
 }
+
 
 export default QuestionDetail;

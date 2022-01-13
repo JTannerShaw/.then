@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', asyncHandler(async (req, res) => {
   const answers = await Answer.findAll({
-    include: { model: User ,  model: Question },
+    include: { model: User, Question },
     order: [['createdAt', 'DESC']]
   });
   return res.json(answers);
@@ -28,10 +28,10 @@ router.post('/', asyncHandler(async (req, res) => {
   return res.status(201).json(newAnswer);
 }))
 
-router.delete('/:id(\\d+)', asyncHandler(async (req, res, next) => {
+router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
   const answer = await Answer.findByPk(req.params.id);
   if (answer) {
-    await Answer.destroy()
+    await answer.destroy()
   }
   return res.json(answer);
 }))

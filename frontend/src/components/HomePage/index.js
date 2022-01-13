@@ -11,12 +11,17 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const question = useSelector(state => state.question.entries)
   const sessionUser = useSelector(state => state.session.user);
-  // console.log('!!!!!!!!!!!!!!!', question)
+  const users = useSelector(state => state.session.entries);
+
   useEffect(() => {
     dispatch(getAllQuestions());
+    dispatch(sessionActions.getAllUsers())
     dispatch(sessionActions.restore());
   }, [dispatch])
 
+  console.log(users);
+  
+  if (sessionUser) {
 
   return (
     <div className="question-wrapper">
@@ -28,26 +33,29 @@ const HomePage = () => {
         <li>Redux</li>
         <li>JavaScript</li>
         <li>Express</li>
-        <li>PostgreSQL</li>
-        <li>HTML5</li>
-        <li>CSS</li>
-        <li>Git</li>
-      </ul>
+            <li>PostgreSQL</li>
+            <li>HTML5</li>
+            <li>CSS</li>
+            <li>Git</li>
+          </ul>
+        </div>
+        <div className='article-container'>
+          <HomePageModal />
+          {question && question.map((question) => {
+            return (
+              <div className="question-container">
+                <NavLink className='question-title' key={question.id} to={`/questions/${question.id}`}>{question.title}</NavLink>
+                <p className="the-usersname">Asked by {sessionUser?.username}</p>
+                <p className='question-description'>{question.description}</p>
+              </div>
+            )
+          })}
+        </div>
       </div>
-      <div className='article-container'>
-      <HomePageModal />
-      {question && question.map((question) => {
-        return (
-          <div className="question-container">
-          <NavLink className='question-title' key={question.id} to={`/questions/${question.id}`}>{question.title}</NavLink>
-          <p className="the-usersname">Asked by {sessionUser?.username}</p>
-          <p className='question-description'>{question.description}</p>
-          </div>
-        )
-      })}
-      </div>
-    </div>
-  )
+    )
+  } else {
+    return <div><></></div>
+  }
 }
 
 export default HomePage;

@@ -21,6 +21,7 @@ const HomePage = () => {
 
   // const questionUser = users.find(question => question.ownerId === users.id)
   // console.log('this user', questionUser);
+  console.log('this is the question object', question);
 
   if (sessionUser) {
 
@@ -54,8 +55,8 @@ const HomePage = () => {
             return (
               <div className="question-container">
                 <NavLink className='question-title' key={question.id} to={`/questions/${question.id}`}>{question.title}</NavLink>
-                <p className="the-usersname">Asked by {sessionUser?.username}</p>
-                <p className='question-description'>{question.description}</p>
+                <p className="the-usersname">Asked by {question?.User.username}</p>
+                <p className='question-description'>{question?.description}</p>
               </div>
             )
           })}

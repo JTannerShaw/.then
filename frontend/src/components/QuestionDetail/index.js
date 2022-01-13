@@ -15,7 +15,7 @@ const QuestionDetail = () => {
   const sessionUser = useSelector(state => state.session.user);
   const choice = questions.find(question => question.id === +id)
 
-
+  console.log(choice);
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getAllQuestions())
@@ -39,7 +39,7 @@ const QuestionDetail = () => {
       <div className='question-detail-wrapper'>
         <div className='question-detail-container'>
           <h1 className="question-title">{choice?.title}</h1>
-          <p className='the-usersname-edit'>{`Asked by ${sessionUser.username}`}</p>
+          <p className='the-usersname-edit'>{`Asked by ${choice?.User.username}`}</p>
           <p className='question-description-edit'>{choice?.description}</p>
           {sessionUser?.id === choice.ownerId ? <NavLink className='edit-button' to={`/questions/${id}/edit`}>Edit</NavLink> : <></>}
           {sessionUser?.id === choice.ownerId ? <button className="delete-button" onClick={handleDelete} type='submit'>Delete Question</button> : <></>}

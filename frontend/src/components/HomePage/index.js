@@ -31,7 +31,7 @@ const HomePage = () => {
         <div className="language-container">
           <ul className="leftbar-languages">
             <h3>Technologies Used</h3>
-            <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" height='30' />
+            <li className='image1'><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" height='30' />
               React</li>
             <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height='30' />
               Redux</li>

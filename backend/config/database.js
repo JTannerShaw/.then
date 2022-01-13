@@ -4,7 +4,7 @@ const db = config.db;
 const username = db.username;
 const password = db.password;
 const database = db.database;
-const host = db.host
+const host = db.host;
 
 module.exports = {
   development: {
@@ -14,11 +14,6 @@ module.exports = {
     host,
     dialect: 'postgres',
     seederStorage: 'sequelize',
-    dialectOptions: {
-      ssl: {
-        rejectUnauthorized: false,
-      }
-    }
   },
   production: {
     use_env_variable: 'DATABASE_URL',
@@ -28,7 +23,7 @@ module.exports = {
       ssl: {
         require: true,
         rejectUnauthorized: false,
-      }
-    }
-  }
-}
+      },
+    },
+  },
+};

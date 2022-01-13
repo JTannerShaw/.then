@@ -19,9 +19,6 @@ const HomePage = () => {
     dispatch(sessionActions.restore());
   }, [dispatch])
 
-  // const questionUser = users.find(question => question.ownerId === users.id)
-  // console.log('this user', questionUser);
-  console.log('this is the question object', question);
 
   if (sessionUser) {
 

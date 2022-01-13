@@ -15,7 +15,6 @@ const QuestionDetail = () => {
   const sessionUser = useSelector(state => state.session.user);
   const choice = questions.find(question => question.id === +id)
 
-  console.log(choice);
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getAllQuestions())

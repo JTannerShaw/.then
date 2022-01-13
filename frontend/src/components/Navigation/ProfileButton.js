@@ -35,7 +35,6 @@ function ProfileButton({ user }) {
   return (
     <>
     <button className='profile-dropdown' onClick={openMenu}>
-      {/* <i className='drop-down' /> */}
       {user.username}
     </button>
     {showMenu && (

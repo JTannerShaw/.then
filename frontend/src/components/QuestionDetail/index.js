@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllQuestions, deleteQuestion } from "../../store/question";
@@ -13,7 +13,6 @@ const QuestionDetail = () => {
   const history = useHistory();
   const questionId = useParams();
   const { id } = questionId;
-  const [value, setValue] = useState();
 
   const questions = useSelector(state => state.question.entries);
   const sessionUser = useSelector(state => state.session.user);
@@ -66,18 +65,21 @@ const QuestionDetail = () => {
         </div>
       </div>
       <div className="answer-button-container">
-      <AddAnswerModal />
+        <AddAnswerModal />
+      </div>
+      <div className='answer-title'>
+        <h2>Answers for {choice?.title}</h2>
       </div>
       {questionsAnswers && questionsAnswers.map((answer) => {
         return (
           <div className='answer-detail-wrapper'>
-          <div className='answer-detail-container'>
-            <p className=''>{answer.answer}</p>
-            <p className='the-usersname-edit'>Answered by {answer?.User?.username}</p>
-            {sessionUser?.id === answer.userId ? <EditAnswerModal /> : <></>}
-            {sessionUser?.id === answer.userId ? <button className="delete-button" value={answer.id} onClick={handleAnswerDelete} type='submit'>Delete Answer</button> : <></>}
+            <div className='answer-detail-container'>
+              <p className=''>{answer.answer}</p>
+              <p className='the-usersname-edit'>Answered by {answer?.User?.username}</p>
+              {sessionUser?.id === answer.userId ? <EditAnswerModal answerId={answer.id} /> : <></>}
+              {sessionUser?.id === answer.userId ? <button className="delete-button" value={answer.id} onClick={handleAnswerDelete} type='submit'>Delete Answer</button> : <></>}
             </div>
-            </div>
+          </div>
         )
       })}
       <div className='related-questions-container'>

@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import * as answerActions from '../../store/answer';
 import './CreateAnswer.css'
 
-const AddQuestion = ({ setShowModal }) => {
+const AddAnswer = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const questionId = useParams();
@@ -24,12 +24,12 @@ const AddQuestion = ({ setShowModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userId = sessionUser.id;
-    const newQuestion = {
+    const newAnswer = {
       userId,
       questionId: id,
       answer
     }
-    const question = await dispatch(answerActions.createAnswer(newQuestion))
+    await dispatch(answerActions.createAnswer(newAnswer))
     setShowModal(false);
     history.push(`/questions/${id}`)
   }
@@ -57,4 +57,4 @@ const AddQuestion = ({ setShowModal }) => {
   )
 }
 
-export default AddQuestion;
+export default AddAnswer;

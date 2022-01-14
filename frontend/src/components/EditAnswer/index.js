@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import * as answerActions from '../../store/answer';
 import './EditAnswer.css'
 
-const EditAnswer = ({ setShowModal }) => {
+const EditAnswer = ({ setShowModal, answerId }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const questionId = useParams();
   const { id } = questionId;
-  const sessionUser = useSelector((state) => state.session.user);
   const [answer, setAnswer] = useState('');
   const [errors, setErrors] = useState([]);
 
@@ -23,21 +22,21 @@ const EditAnswer = ({ setShowModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userId = sessionUser.id;
     const editAnswer = {
+      id: answerId,
       answer
     }
     await dispatch(answerActions.updateAnswer(editAnswer))
     setShowModal(false);
     history.push(`/questions/${id}`)
+    window.location.reload();
   }
-
 
   return (
     <div className='add-question-main'>
       <div className='form-container'>
         <form className='question-form' onSubmit={handleSubmit}>
-          <h1>What's your answer?</h1>
+          <h1>Editing Answer</h1>
           <ul>
           {errors.map((error, idx) => <li className='errors' key={idx}>{error}</li>)}
           </ul>
@@ -48,7 +47,7 @@ const EditAnswer = ({ setShowModal }) => {
             onChange={(e) => setAnswer(e.target.value)}
             required />
           </label>
-          <button className='submit-question' type='submit' disabled={errors.length === 0 ? false : true}>Submit Answer</button>
+          <button className='submit-question' type='submit' disabled={errors.length === 0 ? false : true}>Submit Edit</button>
         </form>
       </div>
     </div>

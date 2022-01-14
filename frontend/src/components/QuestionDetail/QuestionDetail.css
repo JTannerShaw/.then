@@ -46,7 +46,7 @@
   height: 100%;
   width: 100%;
   margin-top: 100px;
-  margin-bottom: 80px;
+  margin-bottom: 10px;
 }
 
 .question-detail-container {
@@ -59,6 +59,11 @@
   margin: 10px;
   padding: 7px;
   background-color: white;
+}
+
+.answer-title {
+  display: flex;
+  justify-content: center;
 }
 
 .related-questions-container {

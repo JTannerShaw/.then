@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditAnswer from '../EditAnswer';
 
-function EditAnswerModal() {
+function EditAnswerModal({ answerId }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -10,7 +10,7 @@ function EditAnswerModal() {
       <button className='edit-button' onClick={() => setShowModal(true)}>Edit</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditAnswer />
+          <EditAnswer setShowModal={setShowModal} answerId={answerId} />
         </Modal>
       )}
     </>

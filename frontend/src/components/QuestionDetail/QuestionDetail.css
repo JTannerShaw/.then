@@ -68,9 +68,10 @@
 
 .related-questions-container {
   position: fixed;
-  top: 100px;
-  left: 1500px;
+  top: 150px;
+  left: 1350px;
   text-align: right;
+  z-index: 1;
 }
 
 .related-question {
@@ -105,4 +106,8 @@
   /* margin: 10px; */
   padding: 7px;
   background-color: white;
+}
+
+.other-questions-container {
+  z-index: 1;
 }

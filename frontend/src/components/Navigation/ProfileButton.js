@@ -41,7 +41,6 @@ function ProfileButton({ user }) {
       <ul className='profile-drop'>
         <li className='username-dropdown'>{user.username}</li>
         <li className='email-dropdown'>{user.email}</li>
-        <NavLink className='profile-button' to={`/user`}>Profile</NavLink>
         <li>
           <button className='logout-button' onClick={logout}>Log Out</button>
         </li>

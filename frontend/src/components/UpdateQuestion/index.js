@@ -40,7 +40,6 @@ const UpdateQuestion = () => {
       description
     }
     await dispatch(questionActions.updateQuestion(editQuestion));
-    // console.log('This is the edit question', question);
     history.push(`/questions/${id}`)
   }
 

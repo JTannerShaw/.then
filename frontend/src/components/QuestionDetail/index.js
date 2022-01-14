@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllQuestions, deleteQuestion } from "../../store/question";
 import * as sessionActions from '../../store/session';
 import * as answerActions from '../../store/answer';
+import AddAnswerModal from '../AddAnswerModal';
+import EditAnswerModal from '../EditAnswerModal';
 import './QuestionDetail.css'
 
 const QuestionDetail = () => {
@@ -11,11 +13,12 @@ const QuestionDetail = () => {
   const history = useHistory();
   const questionId = useParams();
   const { id } = questionId;
+  const [value, setValue] = useState();
 
   const questions = useSelector(state => state.question.entries);
   const sessionUser = useSelector(state => state.session.user);
   const answers = useSelector(state => state.answer.entries);
-  // const users = useSelector(state => state.session.entries)
+
   const choice = questions.find(question => question.id === +id)
 
   const questionsAnswers = answers.filter(answer => answer.questionId === +id);
@@ -48,7 +51,7 @@ const QuestionDetail = () => {
     e.preventDefault();
     const id = e.target.value
     await dispatch(answerActions.deleteAnswer(id))
-    history.push(`/questions/${id}`)
+    window.location.reload();
   }
 
   return (
@@ -62,13 +65,16 @@ const QuestionDetail = () => {
           {sessionUser?.id === choice.ownerId ? <button className="delete-button" onClick={handleDelete} type='submit'>Delete Question</button> : <></>}
         </div>
       </div>
+      <div className="answer-button-container">
+      <AddAnswerModal />
+      </div>
       {questionsAnswers && questionsAnswers.map((answer) => {
         return (
           <div className='answer-detail-wrapper'>
           <div className='answer-detail-container'>
             <p className=''>{answer.answer}</p>
             <p className='the-usersname-edit'>Answered by {answer?.User?.username}</p>
-            {sessionUser?.id === answer.userId ? <NavLink className='edit-button' to={'/'}>Edit</NavLink> : <></>}
+            {sessionUser?.id === answer.userId ? <EditAnswerModal /> : <></>}
             {sessionUser?.id === answer.userId ? <button className="delete-button" value={answer.id} onClick={handleAnswerDelete} type='submit'>Delete Answer</button> : <></>}
             </div>
             </div>

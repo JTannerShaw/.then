@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Modal } from '../../context/Modal';
-import CreateAnswer from '../CreateAnswer';
-import './AddAnswerModal.css';
+import EditAnswer from '../EditAnswer';
+import './EditAnswerModal.css';
 
 function AddAnswerModal() {
   const sessionUser = useSelector(state => state.session.user);
@@ -11,7 +11,7 @@ function AddAnswerModal() {
 
     return (
       <>
-        <button className='answer-button' onClick={() => setShowModal(true)}>Answer!</button>
+        <button className='edit-button' onClick={() => setShowModal(true)}>Edit</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <CreateAnswer setShowModal={setShowModal} />

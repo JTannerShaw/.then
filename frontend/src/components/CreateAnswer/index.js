@@ -32,6 +32,7 @@ const AddAnswer = ({ setShowModal }) => {
     await dispatch(answerActions.createAnswer(newAnswer))
     setShowModal(false);
     history.push(`/questions/${id}`)
+    window.location.reload();
   }
 
 

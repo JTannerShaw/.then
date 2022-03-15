@@ -19,6 +19,9 @@ const AddAnswer = ({ setShowModal }) => {
     if (answer.length === 0) {
       errors.push('Answer is required')
     }
+    if (answer.indexOf(' ') === 0) {
+      errors.push('Answer cannot start with a space')
+    }
     setErrors(errors);
   }, [answer, value]);
 

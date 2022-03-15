@@ -20,6 +20,12 @@ const AddQuestion = ({ setShowModal }) => {
     if (description.length === 0) {
       errors.push('Description is required')
     }
+    if (title.indexOf(' ') === 0) {
+      errors.push('Title cannot start with a space')
+    }
+    if (description.indexOf(' ') === 0) {
+      errors.push('Description cannot start with a space')
+    }
     setErrors(errors);
   }, [title, description]);
 

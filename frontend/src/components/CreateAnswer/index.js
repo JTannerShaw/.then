@@ -12,6 +12,7 @@ const AddAnswer = ({ setShowModal }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const [answer, setAnswer] = useState('');
   const [errors, setErrors] = useState([]);
+  const [value, setValue] = useState();
 
   useEffect(() => {
     const errors = [];
@@ -19,7 +20,7 @@ const AddAnswer = ({ setShowModal }) => {
       errors.push('Answer is required')
     }
     setErrors(errors);
-  }, [answer]);
+  }, [answer, value]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,8 +32,9 @@ const AddAnswer = ({ setShowModal }) => {
     }
     await dispatch(answerActions.createAnswer(newAnswer))
     setShowModal(false);
+    setValue({})
     history.push(`/questions/${id}`)
-    window.location.reload();
+    // window.location.reload();
   }
 
 

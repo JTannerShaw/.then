@@ -46,6 +46,17 @@
   left: 250px;
 }
 
+@media screen and (max-width: 2000px) {
+  .language-container {
+    top: 60px;
+    left: 0px;
+  }
+}
+@media screen and (max-width: 860px) {
+  .language-container {
+    display: none
+  }
+}
 
 .leftbar-languages {
   list-style: none;

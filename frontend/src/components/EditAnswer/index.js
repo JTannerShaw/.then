@@ -10,6 +10,7 @@ const EditAnswer = ({ setShowModal, answerId }) => {
   const questionId = useParams();
   const { id } = questionId;
   const [answer, setAnswer] = useState('');
+  const [value, setValue] = useState();
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const EditAnswer = ({ setShowModal, answerId }) => {
       errors.push('Answer is required')
     }
     setErrors(errors);
-  }, [answer]);
+  }, [answer, value]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,8 +29,9 @@ const EditAnswer = ({ setShowModal, answerId }) => {
     }
     await dispatch(answerActions.updateAnswer(editAnswer))
     setShowModal(false);
+    setValue({})
     history.push(`/questions/${id}`)
-    window.location.reload();
+    // window.location.reload();
   }
 
   return (
